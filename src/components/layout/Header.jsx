@@ -12,10 +12,10 @@ const Header = () =>{
         <nav className='main-nav'>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/">Shop</Link></li>
-                <li><Link to="/">Help</Link></li>
-                <li className='login'><Link to="/">Log In</Link></li>
-                <li><Link to="/">Sign Up</Link></li> 
+                <li><Link to="/shop">Shop</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/signup">Sign Up</Link></li>
+                 <li className='login'><Link to="/login">Log In</Link></li>
             </ul>
         </nav>
         <SearchBar />
