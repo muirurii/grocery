@@ -1,11 +1,11 @@
 import SearchBar from "../../layout/SearchBar";
-import ProductCard from "../../layout/ProductCard";
+import ProductCard from "../../layout/Cart/ProductCard";
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
+import productsObj from "../../store/products";
 
 const Shop = () => {
     const {products} = useContext(GlobalContext);
-
     return ( 
         <main>
             <section className="shop">
@@ -13,7 +13,7 @@ const Shop = () => {
             <section className="product-container">
             {
                 products.map((product,index)=>{
-                    return <ProductCard productName={product.name} price={product.price}/>
+                    return <ProductCard key={index} product = {product}/>
                 })
             }</section>
             </section>

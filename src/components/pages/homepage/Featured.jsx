@@ -1,4 +1,4 @@
-import ProductCard from "../../layout/ProductCard";
+import ProductCard from "../../layout/Cart/ProductCard";
 // import {soya} from '../../images/products/ovacado.jpg'/
 const Featured = () => {
     const featured = [

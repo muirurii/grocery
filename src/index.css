@@ -288,10 +288,22 @@ main h1 {
     min-height: 400px;
     background-color: #fff;
     position: absolute;
-    top: 50px;
+    /* top: 50%; */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX( -50%);
     z-index: 50;
+    border-radius: 3px;
+}
+
+.close-card {
+    background: transparent;
+    border: none;
+    color: #ff0000;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    top: -.2em;
+    right: 0.4em;
 }
 
 .cart::after {
@@ -338,6 +350,11 @@ main h1 {
 .buttons {
     display: flex;
     justify-content: space-evenly;
+}
+
+.buttons span {
+    padding: .5em 0;
+    font-size: 1rem;
 }
 
 .buttons button {
