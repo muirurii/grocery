@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import SearchBar from './SearchBar';
+
 const Header = () =>{ 
     return(
     <header>
@@ -18,7 +18,6 @@ const Header = () =>{
                  <li className='login'><Link to="/login">Log In</Link></li>
             </ul>
         </nav>
-        <SearchBar />
     </header>
     )
 }

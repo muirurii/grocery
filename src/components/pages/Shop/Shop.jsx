@@ -2,7 +2,6 @@ import SearchBar from "../../layout/SearchBar";
 import ProductCard from "../../layout/Cart/ProductCard";
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
-import productsObj from "../../store/products";
 
 const Shop = () => {
     const {products} = useContext(GlobalContext);

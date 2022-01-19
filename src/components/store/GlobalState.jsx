@@ -7,7 +7,6 @@ const products = productsObj();
 const initialState = [
       {
         products:[...products],
-        productsInCart:[],
         isCartOpen:false
     }
       
@@ -23,7 +22,6 @@ export const GlobalProvider = ({children}) => {
        <GlobalContext.Provider value={{
             products:state.products,
             isCartOpen: state.isCartOpen,
-            productsInCart:state.productsInCart,
             dispatch
        }        
        }>

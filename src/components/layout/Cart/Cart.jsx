@@ -4,16 +4,21 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
 
-    const {productsInCart,isCartOpen,dispatch} = useContext(GlobalContext);
+    const {products,isCartOpen,dispatch} = useContext(GlobalContext);
 
     const scrollY = window.scrollY;
 
     const closeCart = ()=>{
          dispatch({
-                        type:"toogleCart",
-                        payload:'',
-                    })
+            type:"toogleCart",
+             payload:'',
+         })
     }
+
+    const productsInCart = products.filter(product => product.isInCart);
+    const totalPrice = productsInCart.reduce((total ,product)=>{
+            return total + product.price* product.amount
+    },0)
 
     return isCartOpen && (
          <div className="cart">
@@ -21,10 +26,16 @@ const Cart = () => {
                 <button className="close-card" onClick={closeCart}>x</button>
             <h2>Selected Products</h2>
             {productsInCart.length ? (
+                <>
                 <ul>
                     {productsInCart.map((product,index)=> <CartItem key={index} product={product} />)}
                 </ul>
-            ): 'No Products Selected'} 
+                <div className="total">
+                  <label className="cost">Total:{totalPrice}</label>
+                  <button>Shop</button>
+                </div>
+                </>
+            ): 'The cart is currently empty select items to add them'} 
             </section>
         </div>
     )

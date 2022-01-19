@@ -1,5 +1,5 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import { useContext } from 'react';
+import { useState,useEffect } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Homepage from './components/pages/homepage/Homepage';
@@ -12,8 +12,13 @@ import { GlobalProvider } from './components/store/GlobalState';
 
 function App() {
 
+  const[loadingState,setLoadingState] = useState(true);
 
-  return (
+  useEffect(()=>{
+      setLoadingState(false)
+  },[])
+
+  return loadingState ? 'ggg' : (
     <GlobalProvider >
       <Router>
           <Header />

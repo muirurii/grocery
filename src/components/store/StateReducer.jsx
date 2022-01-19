@@ -9,29 +9,28 @@ const StateReducer = (state,action)=>{
         case "addToCart":{
             return{
                 ...state,
-                productsInCart:[...state.productsInCart,action.payload]
+                products:state.products.map(prod=> prod.id === action.payload ? {...prod,isInCart:true}: prod)
             }
         }
         case "increaseCount" :{
             return{
                 ...state,
-                productsInCart: state.productsInCart.map(product=> product.id === action.payload ? {...product,amount: product.amount+1} : product)
+                products: state.products.map(product=> product.id === action.payload ? {...product,amount: product.amount+1} : product)
             }
         }
         case "reduceCount" :{
             return{
                 ...state,
-                productsInCart: state.productsInCart.map(product=> product.id === action.payload && product.amount > 1 ? {...product,amount: product.amount-1} : product)
+                products: state.products.map(product=> product.id === action.payload && product.amount > 1 ? {...product,amount: product.amount-1} : product)
             }
         }
         case "removeFromCart":{
             return{
                 ...state,
-                productsInCart:state.productsInCart.filter(product => action.payload !== product.id )
+                products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false}: product )
             }
         }
         default:{
-            // console.log('def');
            return state;  
         }
     }

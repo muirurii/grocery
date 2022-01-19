@@ -26,10 +26,10 @@ const CartButtons = ({product}) => {
     }
     return (
         <div className="buttons">
-                <button className="decrement"  onClick={()=>decreaseItemCount(product.id)}>-</button>
+                <button data-tool-tip="decrease" className="decrement"  onClick={()=>decreaseItemCount(product.id)}>-</button>
                 <span>{product.amount}</span>
-                <button className="increment" onClick={()=>increaseItemCount(product.id)}>+</button>
-                <button className="remove" onClick={()=>removeFromCart(product.id)}>X</button>
+                <button data-tool-tip="increase" className="increment" onClick={()=>increaseItemCount(product.id)}>+</button>
+                <button data-tool-tip="remove" className="remove" onClick={()=>removeFromCart(product.id)}>X</button>
         </div>
     )
 }

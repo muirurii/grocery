@@ -6,7 +6,7 @@
 }
 
 :root {
-    --mainGreen: #045c08;
+    --mainGreen: #0d3600;
     --mainOrange: #f56e00;
     --fadeColor: #faa73a33;
 }
@@ -40,8 +40,8 @@ h1 {
 }
 
 .top-banner {
-    min-height: 30px;
-    background-color: var(--mainGreen);
+    min-height: 24px;
+    background-color: #0d3600;
     transform: translateX(-1em);
     width: calc(100% + 1em);
 }
@@ -56,23 +56,6 @@ header {
 header h1 {
     font-size: 1.5rem;
     padding: .5em 0;
-}
-
-.search-bar {
-    /* transform: translateY(50%); */
-}
-
-.search-bar input {
-    padding: .5em 0 .5em 1em;
-    border-radius: 3px;
-    border: 1px solid var(--mainOrange);
-}
-
-.search-bar button {
-    background-color: var(--mainGreen);
-    border: none;
-    padding: .4em;
-    margin-left: .5em;
 }
 
 .main-nav {
@@ -90,10 +73,10 @@ header h1 {
     display: block;
     padding: .6em .7em;
     font-size: 0.8rem;
-    color: #000;
+    color: var(--mainOrange);
 }
 
-.main-nav .login {
+.main-nav .login a {
     background-color: var(--mainGreen);
     border-radius: 3px;
     color: #fff;
@@ -141,7 +124,7 @@ main h1 {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: 2em 0;
+    padding: 50px 0;
 }
 
 .product-card {
@@ -178,9 +161,12 @@ main h1 {
     opacity: 0.9;
 }
 
+.product-card .view-in-cart {
+    background-color: var(--mainOrange);
+}
+
 .how-it-works {
     padding: 1em 0;
-    /* background-color: #149e2b7c; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -278,10 +264,43 @@ main h1 {
     padding: 2em 0;
 }
 
-.shop .search-bar input {
+.search-bar {
+    /* transform: translateY(50%); */
+}
+
+.search-bar input {
+    padding: .5em 0 .5em 1em;
+    border-radius: 3px;
+    border: 1px solid var(--mainOrange);
+}
+
+.search-bar #search {
+    width: 60%;
+}
+
+.search-bar select {
+    min-width: 80px;
+    height: 30px;
+    margin: 0 1em;
+}
+
+.search-bar select option {
+    padding: 1em;
+    outline: 1px solid black;
+}
+
+.search-bar button {
+    background-color: var(--mainGreen);
+    border: none;
+    padding: .4em;
+    margin-left: .5em;
+}
+
+
+/* .search-bar input {
     width: 70vw;
     margin-left: 15vw;
-}
+} */
 
 .cart section {
     width: 320px;
@@ -299,11 +318,11 @@ main h1 {
     background: transparent;
     border: none;
     color: #ff0000;
+    padding: 0 .1em;
     font-size: 2rem;
-    font-weight: bold;
     position: absolute;
-    top: -.2em;
-    right: 0.4em;
+    top: -0em;
+    right: 0em;
 }
 
 .cart::after {
@@ -362,6 +381,28 @@ main h1 {
     border: none;
     border-radius: 3px;
     color: #fff;
+    position: relative;
+}
+
+.buttons button::after {
+    content: attr(data-tool-tip);
+    position: absolute;
+    left: 0px;
+    bottom: -15px;
+    width: 40px;
+    padding: .2em 0;
+    font-size: .6rem;
+    background-color: rgba(204, 204, 204, 0.596);
+    border-radius: 3px;
+    color: var(--mainOrange);
+    transform: rotateY(90deg) translateY(-20px);
+    transition: transform 250ms 400ms ease-in;
+    opacity: 0;
+}
+
+.buttons button:hover::after {
+    transform: rotateY(0deg) translateY(0px);
+    opacity: 1;
 }
 
 .decrement {
@@ -374,6 +415,27 @@ main h1 {
 
 .remove {
     background-color: red;
+}
+
+.cost {
+    float: right;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.total {
+    padding-right: 1em;
+}
+
+.total button {
+    border: none;
+    background-color: var(--mainGreen);
+    color: #fff;
+    padding: 1em 0em;
+    text-align: center;
+    width: 90%;
+    margin: 0 0 5% 5%;
+    border-radius: 4px;
 }
 
 footer {
