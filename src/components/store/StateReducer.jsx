@@ -30,6 +30,12 @@ const StateReducer = (state,action)=>{
                 products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false}: product )
             }
         }
+        case "filter":{
+            return{
+                ...state,
+                products: state.products.filter(prod=> prod.category === action.payload)
+            }
+        }
         default:{
            return state;  
         }

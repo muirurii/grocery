@@ -7,7 +7,7 @@ const Header = () =>{
             <div className="icons">some icons</div>
         </div>
         <div className="logo">
-            <h1>GREENS</h1>
+            <h1>GREENS <i className='fab fa-envira'></i> </h1>
         </div>
         <nav className='main-nav'>
             <ul>

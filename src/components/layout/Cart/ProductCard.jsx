@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
 
 const ProductCard = ({product}) => {
-    const {dispatch,products} = useContext(GlobalContext);
+    const {dispatch} = useContext(GlobalContext);
     const addToCart = ()=>{
         dispatch({
             type:"addToCart",
@@ -11,7 +11,7 @@ const ProductCard = ({product}) => {
         toggleCart();
     }
     const toggleCart = ()=>{
-             dispatch({
+            dispatch({
             type:"toogleCart",
             payload:'',
         });
@@ -19,7 +19,7 @@ const ProductCard = ({product}) => {
     const isThisInCart = product.isInCart;
     return (
         <article className="product-card">
-            <div className="product-background"></div>
+            <div className="product-background" style={{backgroundImage:`url(${product.img})`}}></div>
             <div className="product-info">
                 <p><strong>{product.name}</strong></p>
                 <strong>{product.price}$</strong>

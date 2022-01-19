@@ -8,7 +8,7 @@
 :root {
     --mainGreen: #0d3600;
     --mainOrange: #f56e00;
-    --fadeColor: #faa73a33;
+    --fadeColor: #81d33591;
 }
 
 html {
@@ -19,7 +19,7 @@ body {
     font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
     position: relative;
-    /* background-color: #149e2b7c; */
+    /* background-color: var(--fadeColor); */
 }
 
 ul {
@@ -37,6 +37,7 @@ button {
 
 h1 {
     font-family: 'Mochiy Pop P One', serif;
+    color: var(--mainGreen);
 }
 
 .top-banner {
@@ -87,7 +88,7 @@ header h1 {
     position: relative;
     padding: 4em;
     overflow: hidden;
-    background-color: var(--fadeColor);
+    /* background-color: var(--fadeColor); */
 }
 
 .hero-text p {
@@ -128,14 +129,23 @@ main h1 {
 }
 
 .product-card {
+    background-color: #fff;
     height: 250px;
     width: 200px;
     margin-bottom: 1em;
     border: 1px solid var(--mainOrange);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 400ms ease-in-out;
+}
+
+.product-card:hover {
+    transform: translate(0.1em, -0.1em);
+    box-shadow: 1px 1px 3px -1px var(--mainGreen);
 }
 
 .product-background {
-    background-image: url('./images/products/avocado.jpg');
+    /* background-image: url('./images/products/avocado.jpg'); */
     background-size: 100% 100%;
     height: 65%;
     width: 100%;
@@ -171,13 +181,38 @@ main h1 {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    background-color: var(--fadeColor);
 }
 
 .how-it-works article {
     min-height: 70px;
     width: 300px;
-    background-color: var(--fadeColor);
-    border-radius: 4px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.how-it-works article:hover div {
+    transform: rotateY(360deg);
+    transition: 800ms linear;
+}
+
+.how-it-works div {
+    position: relative;
+    background-color: var(--mainGreen);
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    transition: 0;
+}
+
+.how-it-works i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.5);
+    color: var(--mainOrange);
 }
 
 .terms {
@@ -387,7 +422,7 @@ main h1 {
 .buttons button::after {
     content: attr(data-tool-tip);
     position: absolute;
-    left: 0px;
+    left: 0;
     bottom: -15px;
     width: 40px;
     padding: .2em 0;
@@ -397,12 +432,12 @@ main h1 {
     color: var(--mainOrange);
     transform: rotateY(90deg) translateY(-20px);
     transition: transform 250ms 400ms ease-in;
-    opacity: 0;
+    transform-origin: left;
 }
 
 .buttons button:hover::after {
-    transform: rotateY(0deg) translateY(0px);
-    opacity: 1;
+    transform: rotateY(0deg) translateY( 0px);
+    transform-origin: right;
 }
 
 .decrement {
@@ -440,6 +475,30 @@ main h1 {
 
 footer {
     min-height: 30vh;
-    background-color: #045c08;
+    padding: 1em 2em;
+    background-color: var(--fadeColor);
     margin-top: 1em;
+    display: grid;
+    grid-template-columns: repeat( 3, 1fr);
+    line-height: 2;
+    color: var(--mainGreen);
+}
+
+address {
+    font-style: normal;
+}
+
+footer h3 {
+    font-size: 1rem;
+}
+
+footer a {
+    color: var(--mainGreen);
+    padding-left: 1em;
+    transition: 1s;
+    font-size: .7rem;
+}
+
+footer a:hover {
+    color: var(--mainOrange);
 }
