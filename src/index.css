@@ -214,18 +214,47 @@ main h1 {
     color: var(--mainOrange);
 }
 
-.terms {
-    list-style-type: square;
+.terms ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1.5;
 }
 
-.terms h2 {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto;
+.terms li {
+    position: relative;
+    padding: 1em;
 }
 
-.about-text p,
+.terms li::after {
+    position: absolute;
+    content: attr(data-number);
+    left: -1em;
+    top: 50%;
+    background-color: var(--mainOrange);
+    color: #fff;
+    width: 3em;
+    height: 3em;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.terms h2,
 .terms p {
+    padding-left: 2em;
+}
+
+.terms p {
+    font-size: .8rem;
+    max-width: 650px;
+}
+
+.about-text p {
     margin: 0 auto;
     font-size: 1rem;
     max-width: 700px;
