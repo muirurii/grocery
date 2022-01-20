@@ -14,10 +14,10 @@ const Category = ({text}) => {
                     type:"filter",
                     payload:text.toLowerCase()
                 })
-                window.scrollTo(0,0)
+                window.scrollTo(0,0);
             }
         }>
-            <h2>{text}</h2>
+            <h2>{text} <i className="fas fa-arrow-right"></i></h2>
         </article>
         </Link>
     )

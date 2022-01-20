@@ -23,7 +23,7 @@ const Cart = () => {
     return isCartOpen && (
          <div className="cart">
             <section style={{top:scrollY+30}}>
-                <button className="close-card" onClick={closeCart}>x</button>
+                <button className="close-cart" onClick={closeCart}><i className="fas fa-arrow-left"></i></button>
             <h2>Selected Products</h2>
             {productsInCart.length ? (
                 <>

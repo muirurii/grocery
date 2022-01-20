@@ -137,6 +137,7 @@ main h1 {
     border-radius: 6px;
     overflow: hidden;
     transition: 400ms ease-in-out;
+    position: relative;
 }
 
 .product-card:hover {
@@ -157,22 +158,55 @@ main h1 {
     font-size: .8rem;
 }
 
-.product-card button {
+.product-card .add-cart,
+.product-card .view-in-cart {
     width: 80%;
     margin-left: 10%;
     padding: .5em 0;
-    border: none;
-    background-color: var(--mainGreen);
     color: #fff;
     border-radius: 3px;
+}
+
+.product-card button {
+    border: none;
 }
 
 .product-card button:hover {
     opacity: 0.9;
 }
 
-.product-card .view-in-cart {
+.product-card .add-cart {
+    background-color: var(--mainGreen);
+}
+
+.product-card .view-in-cart,
+.product-card .more {
     background-color: var(--mainOrange);
+}
+
+.product-card .more {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    padding: .4em .8em;
+    border-radius: 30px;
+}
+
+.product-page .hide-more {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+
+.product-page .hide-more .description {
+    font-size: 1rem;
+    max-width: 400px;
+    padding: 1em;
+}
+
+.product-page .hide-more .more {
+    display: none;
 }
 
 .how-it-works {
@@ -247,6 +281,10 @@ main h1 {
 .terms h2,
 .terms p {
     padding-left: 2em;
+}
+
+.terms h2 {
+    text-decoration: underline;
 }
 
 .terms p {
@@ -377,15 +415,19 @@ main h1 {
     border-radius: 3px;
 }
 
-.close-card {
+.close-cart {
     background: transparent;
     border: none;
     color: #ff0000;
     padding: 0 .1em;
-    font-size: 2rem;
+    font-size: 1rem;
     position: absolute;
     top: 0em;
     left: .5em;
+}
+
+.close-cart i {
+    transform: scaleX(1.2);
 }
 
 .cart::after {

@@ -9,6 +9,7 @@ const products = () => {
             price: 4,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Cabbage',
@@ -20,6 +21,7 @@ const products = () => {
             price: 6,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         }, {
             name: 'Capsicum',
             amount_each: '2kg',
@@ -30,6 +32,7 @@ const products = () => {
             price: 5,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Courgettes',
@@ -41,6 +44,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         }, {
             name: 'Tomatoes',
             amount_each: '2kg',
@@ -51,6 +55,7 @@ const products = () => {
             price: 5,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Peanuts',
@@ -62,6 +67,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'French beans',
@@ -73,6 +79,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Bananas',
@@ -84,6 +91,7 @@ const products = () => {
             price: 4,
             isFeatured: true,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Spinach',
@@ -95,6 +103,7 @@ const products = () => {
             price: 6,
             isFeatured: true,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         }, {
             name: 'Cassava',
             amount_each: '2kg',
@@ -105,6 +114,7 @@ const products = () => {
             price: 5,
             isFeatured: true,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Potatoes',
@@ -116,6 +126,7 @@ const products = () => {
             price: 7,
             isFeatured: true,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Sweet potatoes',
@@ -127,6 +138,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Maize',
@@ -138,6 +150,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Peas',
@@ -149,6 +162,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Pepper',
@@ -160,6 +174,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Melon',
@@ -171,6 +186,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Pumpkin',
@@ -182,6 +198,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Apples',
@@ -193,6 +210,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Beans',
@@ -204,6 +222,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Pawpaw',
@@ -215,6 +234,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Pineapple',
@@ -226,6 +246,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
@@ -237,6 +258,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Grapes',
@@ -248,6 +270,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Valencia Orange',
@@ -259,83 +282,91 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
             amount_each: '1kg',
-            category: "cereals",
+            category: "fruits",
             id: 25,
             amount: 1,
             img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'Lentils',
             amount_each: '1kg',
             category: "cereals",
             id: 26,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://image.freepik.com/free-photo/lentils_1368-8869.jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'Greengrams',
             amount_each: '1kg',
             category: "cereals",
             id: 27,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://image.freepik.com/free-photo/bean-gram_1339-221.jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'Mangoe',
             amount_each: '1kg',
             category: "cereals",
             id: 28,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://image.freepik.com/free-photo/mango_144627-27543.jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'Red Onion',
             amount_each: '1kg',
             category: "cereals",
             id: 29,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://image.freepik.com/free-photo/red-onion_144627-15416.jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'White Onion',
             amount_each: '1kg',
             category: "cereals",
             id: 2888,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://img.freepik.com/free-photo/close-up-fresh-garlic_144627-34523.jpg?size=338&ext=jpg",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
-            name: 'Strawberry',
+            name: 'Carrot',
             amount_each: '1kg',
             category: "cereals",
             id: 2988,
             amount: 1,
-            img: "https://img.freepik.com/free-photo/red-fresh-strawberries-with-green-leaves_114579-10506.jpg?size=338&ext=jpg",
+            img: "https://image.freepik.com/free-photo/carrots-ready-eat_1205-49.jpg?1",
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
@@ -347,6 +378,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
@@ -358,6 +390,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
@@ -369,6 +402,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         },
         {
             name: 'Strawberry',
@@ -380,6 +414,7 @@ const products = () => {
             price: 7,
             isFeatured: false,
             isInCart: false,
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ea? Ea placeat vero minima, libero numquam eos nam, molestiae ipsam quis odit dicta praesentiu"
         }
     ]
 }
