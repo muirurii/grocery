@@ -1,13 +1,14 @@
 import { createContext ,useReducer} from "react";
-import productsObj from "./products";
+import products from "./products";
 import StateReducer from "./StateReducer";
 
-const products = productsObj();
 
 const initialState = [
       {
         products:[...products],
-        isCartOpen:false
+        isCartOpen:false,
+        searchText:"",
+        filterValue:""
     }
       
 ]
@@ -22,6 +23,8 @@ export const GlobalProvider = ({children}) => {
        <GlobalContext.Provider value={{
             products:state.products,
             isCartOpen: state.isCartOpen,
+            searchText: state.searchText,
+            filterValue: state.filterValue,
             dispatch
        }        
        }>

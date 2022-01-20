@@ -185,7 +185,7 @@ main h1 {
 }
 
 .how-it-works article {
-    min-height: 70px;
+    min-height: 75px;
     width: 300px;
     position: relative;
     display: flex;
@@ -194,8 +194,7 @@ main h1 {
 }
 
 .how-it-works article:hover div {
-    transform: rotateY(360deg);
-    transition: 800ms linear;
+    transform: translateY(-7px);
 }
 
 .how-it-works div {
@@ -204,7 +203,7 @@ main h1 {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    transition: 0;
+    transition: 400ms linear;
 }
 
 .how-it-works i {
@@ -299,8 +298,8 @@ main h1 {
     padding: 2em 0;
 }
 
-.search-bar {
-    /* transform: translateY(50%); */
+.search-bar form {
+    display: inline;
 }
 
 .search-bar input {
@@ -356,8 +355,8 @@ main h1 {
     padding: 0 .1em;
     font-size: 2rem;
     position: absolute;
-    top: -0em;
-    right: 0em;
+    top: 0em;
+    left: .5em;
 }
 
 .cart::after {
@@ -471,6 +470,66 @@ main h1 {
     width: 90%;
     margin: 0 0 5% 5%;
     border-radius: 4px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+}
+
+.categories article {
+    width: 200px;
+    height: 60px;
+    padding: 1em;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 1000ms ease-in-out;
+}
+
+.categories article::after,
+.categories article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: transform 400ms ease-in-out;
+}
+
+.categories article::after {
+    background-color: var(--mainOrange);
+    transform-origin: bottom;
+}
+
+.categories article::before {
+    background-color: var(--mainGreen);
+    transform-origin: bottom;
+    transform: scaleY(0);
+}
+
+.categories article:hover {
+    transform: translateX(10px);
+}
+
+.categories article:hover::after {
+    transform: scaleY(0);
+}
+
+.categories article:hover::before {
+    transform: scaleY(1);
+}
+
+.categories article h2 {
+    color: var(--mainGreen);
+}
+
+.categories article:hover h2 {
+    color: #fff;
 }
 
 footer {

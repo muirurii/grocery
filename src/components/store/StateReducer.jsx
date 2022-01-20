@@ -33,7 +33,13 @@ const StateReducer = (state,action)=>{
         case "filter":{
             return{
                 ...state,
-                products: state.products.filter(prod=> prod.category === action.payload)
+                filterValue: action.payload
+            }
+        }
+        case "search":{
+            return{
+                ...state,
+                searchText:action.payload
             }
         }
         default:{
