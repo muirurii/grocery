@@ -8,7 +8,10 @@ const initialState = [
         products:[...products],
         isCartOpen:false,
         searchText:"",
-        filterValue:""
+        filterValue:"",
+        isLoggedIn: false,
+        logOutModal:false,
+        userName:' '
     }
       
 ]
@@ -25,6 +28,9 @@ export const GlobalProvider = ({children}) => {
             isCartOpen: state.isCartOpen,
             searchText: state.searchText,
             filterValue: state.filterValue,
+            isLoggedIn:state.isLoggedIn,
+            logOutModal:state.logOutModal,
+            userName:state.userName,
             dispatch
        }        
        }>

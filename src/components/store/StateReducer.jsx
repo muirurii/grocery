@@ -42,6 +42,24 @@ const StateReducer = (state,action)=>{
                 searchText:action.payload
             }
         }
+        case "changeLogIn":{
+            return{
+                ...state,
+                isLoggedIn: !state.isLoggedIn
+            }
+        }
+        case "toggleLogOutModal":{
+            return{
+                ...state,
+                logOutModal: !state.logOutModal
+            }
+        }
+        case "toggleAvatar":{
+            return{
+                ...state,
+                userName: action.payload
+            }
+        }
         default:{
            return state;  
         }
