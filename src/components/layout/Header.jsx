@@ -6,18 +6,25 @@ import Avatar from './Avatar';
 
 const Header = () =>{ 
 
-    const {isLoggedIn,logOutModal,dispatch,userName} = useContext(GlobalContext);
+    const {isLoggedIn,logOutModal,dispatch,userName,products} = useContext(GlobalContext);
 
     const openModal = ()=>{
         dispatch({
             type:"toggleLogOutModal"
         });
     }
+    const toggleCart = ()=>{
+        dispatch({
+        type:"toogleCart",
+        payload:'',
+    });
+}
+
+    let count = 0;
+    products.forEach(product=> product.isInCart && count++)
+
     return(
     <header>
-        <div className="top-banner">
-            <div className="icons">some icons</div>
-        </div>
         <div className="logo">
             <h1>GREENS <i className='fab fa-envira'></i> </h1>
         </div>
@@ -34,6 +41,10 @@ const Header = () =>{
                 </li>
             </ul>
         </nav>
+        <div className="cart-count center" onClick={toggleCart}>
+            <i className='fas fa-shopping-cart'></i>
+            <p>{count}</p>
+        </div>
     </header>
     )
 }

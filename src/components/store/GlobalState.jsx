@@ -11,7 +11,7 @@ const initialState = [
         filterValue:"",
         isLoggedIn: false,
         logOutModal:false,
-        userName:' '
+        userName:' ',
     }
       
 ]
