@@ -119,6 +119,7 @@ header h1 {
 .main-nav ul div,
 .main-nav ul {
     display: flex;
+    font-weight: bold;
 }
 
 .main-nav a,

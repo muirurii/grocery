@@ -24,7 +24,7 @@ const SearchBar = () => {
                     <option value="cereals">Cereals</option>
                     <option value="vegetables">Vegetables</option>
                     <option value="fruits">Fruits</option>
-                    <option value="beef">Beef</option>
+                    <option value="meats">Meats</option>
                 </select>
                 <form>
                     <input type="text" id="search" placeholder="search products by name"  onChange={searchFunc}/>
