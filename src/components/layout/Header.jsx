@@ -30,15 +30,19 @@ const Header = () =>{
         </div>
         <nav className='main-nav'>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/shop">Shop</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                {!isLoggedIn && <li><Link to="/signup">Sign Up</Link></li>}
-                <li className='login' >
-                    {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
-                  {logOutModal && <LogOutModal />}  
-                  {isLoggedIn  && <Avatar name={userName}/>}
-                </li>
+                <div className="big-screen-nav">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/about">About us</Link></li>
+                </div>
+                <div>
+                    {!isLoggedIn && <li><Link to="/signup">Sign Up</Link></li>}
+                    <li className='login' >
+                        {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
+                    {logOutModal && <LogOutModal />}  
+                    {isLoggedIn  && <Avatar name={userName}/>}
+                    </li>
+                </div>
             </ul>
         </nav>
         <div className="cart-count center" onClick={toggleCart}>

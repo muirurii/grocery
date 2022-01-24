@@ -4,7 +4,7 @@ import { GlobalContext } from "../../store/GlobalState";
 
 const CartButtons = ({product}) => {
     
-    const {dispatch,productsInCart}= useContext(GlobalContext);
+    const {dispatch}= useContext(GlobalContext);
 
     const increaseItemCount = (id)=>{
             dispatch({

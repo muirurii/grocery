@@ -5,7 +5,7 @@ import {useNavigate } from "react-router";
 
 const LogIn = () => {
 
-    const {dispatch,userName} = useContext(GlobalContext);
+    const {dispatch} = useContext(GlobalContext);
     const navigate = useNavigate();
     const [name,setName] = useState("");
 

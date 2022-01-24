@@ -7,7 +7,7 @@
 
 :root {
     --mainGreen: #0d3600;
-    --mainOrange: #f56e00;
+    --mainOrange: #f54500;
     --fadeColor: #81d33591;
 }
 
@@ -114,9 +114,9 @@ header h1 {
     position: absolute;
     top: 1em;
     right: 10%;
-    display: flex;
 }
 
+.main-nav ul div,
 .main-nav ul {
     display: flex;
 }
@@ -145,6 +145,7 @@ header h1 {
 .cart-count {
     position: fixed;
     right: 2em;
+    top: 90px;
     width: 30px;
     height: 30px;
     background-color: #fff;
@@ -167,26 +168,27 @@ header h1 {
     top: 101%;
     right: 0%;
     min-height: 70px;
-    width: 220px;
+    width: 250px;
     background-color: var(--fadeColor);
     backdrop-filter: blur(20px);
     border-radius: 3px;
-    padding: 1em;
+    padding: 2em;
     z-index: 3;
 }
 
 .log-out-modal p {
     font-size: .8rem;
+    padding-bottom: 2em;
+    color: var(--mainGreen);
 }
 
 .log-out-buttons {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 1em;
 }
 
 .log-out-buttons button {
-    padding: .6em .7em;
+    padding: .8em .9em;
     font-size: .7rem;
 }
 
@@ -209,7 +211,7 @@ header h1 {
     transform: translateY(-50%);
     height: 40px;
     width: 40px;
-    background-color: #ccc;
+    background-color: var(--fadeColor);
     border: 3px solid var(--mainGreen);
     border-radius: 50%;
     font-size: 1rem;
@@ -218,28 +220,10 @@ header h1 {
 
 .hero {
     min-height: 50vh;
-    position: relative;
     overflow: hidden;
 }
 
-.hero-bg {
-    background-image: url("https://images.pexels.com/photos/375897/pexels-photo-375897.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-    background-size: 100% 100%;
-    z-index: -1;
-}
-
-.hero-bg,
-.backdrop {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.backdrop {
-    background-color: var(--fadeColor);
-    backdrop-filter: blur(2px);
+.hero {
     padding: 4em;
 }
 
@@ -389,7 +373,7 @@ main h1 {
 }
 
 .how-it-works article {
-    min-height: 75px;
+    min-height: 100px;
     width: 300px;
     position: relative;
     display: flex;
@@ -424,6 +408,7 @@ main h1 {
     align-items: center;
     flex-direction: column;
     line-height: 1.5;
+    padding: 2em;
 }
 
 .terms li {
@@ -466,6 +451,7 @@ main h1 {
     margin: 0 auto;
     font-size: 1rem;
     max-width: 700px;
+    padding: 1em;
 }
 
 .center {
@@ -546,36 +532,25 @@ main h1 {
     padding: 2em 0;
 }
 
+.search-bar {
+    flex-wrap: wrap;
+}
+
 .search-bar form {
-    display: inline;
+    margin: 1em;
 }
 
 .search-bar input {
     padding: .5em 0 .5em 1em;
     border-radius: 3px;
     border: 1px solid var(--mainOrange);
-}
-
-.search-bar #search {
-    width: 60%;
+    min-width: 300px;
 }
 
 .search-bar select {
     min-width: 80px;
     height: 30px;
     margin: 0 1em;
-}
-
-.search-bar select option {
-    padding: 1em;
-    outline: 1px solid black;
-}
-
-.search-bar button {
-    background-color: var(--mainGreen);
-    border: none;
-    padding: .4em;
-    margin-left: .5em;
 }
 
 .cart section {
@@ -719,6 +694,7 @@ main h1 {
 
 .categories {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 1em 0;
 }
@@ -732,6 +708,7 @@ main h1 {
     overflow: hidden;
     cursor: pointer;
     transition: transform 1000ms ease-in-out;
+    margin: 0em 3em 2em 3em;
 }
 
 .categories article::after,
@@ -805,4 +782,28 @@ footer a {
 
 footer a:hover {
     color: var(--mainOrange);
+}
+
+footer i {
+    color: var(--mainOrange);
+}
+
+.icons i {
+    padding: 10px;
+}
+
+@media (max-width:400px) {
+    .form-layout {
+        width: 300px;
+        margin: 1em auto;
+    }
+    footer {
+        display: block;
+    }
+}
+
+@media (max-width:600px) {
+    .main-nav .big-screen-nav {
+        display: none;
+    }
 }

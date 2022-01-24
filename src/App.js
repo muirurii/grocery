@@ -10,7 +10,7 @@ import LogIn from './components/pages/LogIn/LogIn';
 import SignUp from './components/pages/SignUp/SignUp';
 import Cart from './components/layout/Cart/Cart';
 import ProductPage from './components/pages/Shop/Product';
-import { GlobalProvider ,GlobalContext} from './components/store/GlobalState';
+import { GlobalProvider } from './components/store/GlobalState';
 
 function App() {
   const[loadingState,setLoadingState] = useState(true);

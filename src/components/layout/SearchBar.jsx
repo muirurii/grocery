@@ -3,7 +3,7 @@ import { GlobalContext } from "../store/GlobalState";
 
 const SearchBar = () => {
 
-    const {dispatch,searchText,filterValue} = useContext(GlobalContext);
+    const {dispatch,filterValue} = useContext(GlobalContext);
 
     const filterSearch = (e) =>{
         dispatch({
@@ -18,18 +18,17 @@ const SearchBar = () => {
         }) 
     }
     return (
-        <div className="search-bar">
-            <select id="select" onChange={filterSearch} value={filterValue}>
-                <option value="">All</option>
-                <option value="cereals">Cereals</option>
-                <option value="vegetables">Vegetables</option>
-                <option value="fruits">Fruits</option>
-                <option value="beef">Beef</option>
-            </select>
-            <form>
-                <input type="text" id="search" placeholder="search products by name"  onChange={searchFunc}/>
-                <button><i className="fas fa-search"></i> </button>
-            </form>
+        <div className="search-bar center">
+                <select id="select" onChange={filterSearch} value={filterValue}>
+                    <option value="">All</option>
+                    <option value="cereals">Cereals</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="beef">Beef</option>
+                </select>
+                <form>
+                    <input type="text" id="search" placeholder="search products by name"  onChange={searchFunc}/>
+                </form>
         </div>
     )
 }
