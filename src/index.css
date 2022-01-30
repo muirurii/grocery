@@ -108,12 +108,16 @@ header {
 
 header h1 {
     font-size: 1.5rem;
-    padding-left: 4em;
+    padding: .4em 0 0 4em;
+}
+
+header h1 i {
+    color: var(--mainOrange);
 }
 
 .main-nav {
     position: absolute;
-    top: 1em;
+    top: 1.5em;
     right: 10%;
 }
 
@@ -136,6 +140,18 @@ header h1 {
     background-color: var(--mainGreen);
     border-radius: 3px;
     border: none;
+    color: #fff;
+}
+
+.main-nav a {
+    transition: 300ms ease-in-out;
+}
+
+.main-nav a:hover {
+    color: var(--mainGreen);
+}
+
+.main-nav .login a:hover {
     color: #fff;
 }
 
@@ -567,11 +583,11 @@ main h1 {
     padding: .5em 0 .5em 1em;
     border-radius: 3px;
     border: 1px solid var(--mainOrange);
-    min-width: 300px;
+    min-width: 310px;
 }
 
 .search-bar select {
-    min-width: 80px;
+    min-width: 150px;
     height: 30px;
     margin: 0 1em;
 }
@@ -580,7 +596,8 @@ main h1 {
     width: 320px;
     min-height: 400px;
     background-color: #fff;
-    position: absolute;
+    position: fixed;
+    top: 40px;
     left: 50%;
     transform: translateX( -50%);
     z-index: 50;
@@ -605,7 +622,7 @@ main h1 {
 .cart::after {
     content: '';
     background-color: rgba(211, 221, 213, 0.466);
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
     width: 100vw;
     position: absolute;
     top: 0px;

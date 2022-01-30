@@ -15,7 +15,7 @@ const Shop = () => {
             <section className="product-container">
             {   filteredProducts.length ?
                 filteredProducts.map((product,index)=>{
-                    return <ProductCard key={index} product = {product}/>
+                    return <ProductCard key={product.id} product = {product}/>
                 }) : 'No products found try searching for something else'
             }</section>
             </section>

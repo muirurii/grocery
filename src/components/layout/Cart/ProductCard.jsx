@@ -16,6 +16,9 @@ const ProductCard = ({product}) => {
             payload:'',
         });
     }
+    const toTop = ()=>{
+        window.scrollTo(0,0);
+    }
     const isThisInCart = product.isInCart;
     return (
         
@@ -28,7 +31,7 @@ const ProductCard = ({product}) => {
                 </div>
                 {isThisInCart ? <button onClick={toggleCart} className="view-in-cart">View in cart</button> :
                 <button onClick={addToCart} className="add-cart">Add to cart <i className="fas fa-cart-plus"></i></button>}
-               <Link to={`/shop/${product.name.toLowerCase()}`}><button className="more">More</button></Link>
+               <Link to={`/shop/${product.name.toLowerCase()}`}><button onClick={toTop} className="more">More</button></Link>
             </article>
         
     )

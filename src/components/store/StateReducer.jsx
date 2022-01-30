@@ -27,7 +27,7 @@ const StateReducer = (state,action)=>{
         case "removeFromCart":{
             return{
                 ...state,
-                products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false}: product )
+                products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false,amount:1}: product )
             }
         }
         case "filter":{

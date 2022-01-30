@@ -6,8 +6,6 @@ const Cart = () => {
 
     const {products,isCartOpen,dispatch} = useContext(GlobalContext);
 
-    const scrollY = window.scrollY;
-
     const closeCart = ()=>{
          dispatch({
             type:"toogleCart",
@@ -22,7 +20,7 @@ const Cart = () => {
 
     return isCartOpen && (
          <div className="cart">
-            <section style={{top:scrollY+30}}>
+            <section>
                 <button className="close-cart" onClick={closeCart}><i className="fas fa-arrow-left"></i></button>
             <h2>Selected Products</h2>
             {productsInCart.length ? (
