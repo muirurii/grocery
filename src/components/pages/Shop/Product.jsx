@@ -20,9 +20,13 @@ const ProductPage = () => {
             <button className="go-back" onClick={()=>navigate(-1)}>
                 <i className="fas fa-arrow-left"></i></button>
                 <ProductCard product={product[0]}/>
-                <p className="description">
-                    {product[0].description}
-                </p>
+                  <div className="description">
+                  <h4>{product[0].price}$ per {product[0].amount_each}</h4>
+                   <p>
+                     {product[0].description}
+                    </p>
+                </div>
+                
             </div>
             <div>
                 <h1>Related products</h1>

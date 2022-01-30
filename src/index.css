@@ -108,6 +108,7 @@ header {
 
 header h1 {
     font-size: 1.5rem;
+    padding-left: 4em;
 }
 
 .main-nav {
@@ -116,7 +117,7 @@ header h1 {
     right: 10%;
 }
 
-.main-nav ul div,
+.main-nav ul .big-screen-nav,
 .main-nav ul {
     display: flex;
     font-weight: bold;
@@ -164,42 +165,47 @@ header h1 {
     color: var(--mainOrange);
 }
 
-.log-out-modal {
+.logout-modal {
     position: absolute;
     top: 101%;
     right: 0%;
-    min-height: 70px;
+    min-height: 140px;
     width: 250px;
-    background-color: var(--fadeColor);
-    backdrop-filter: blur(20px);
+    background-color: var(--mainGreen);
     border-radius: 3px;
     padding: 2em;
     z-index: 3;
 }
 
-.log-out-modal p {
+.logout-modal p {
     font-size: .8rem;
     padding-bottom: 2em;
-    color: var(--mainGreen);
+    color: #fff;
+    text-align: center;
 }
 
-.log-out-buttons {
+.logout-buttons {
     display: flex;
     justify-content: space-evenly;
 }
 
-.log-out-buttons button {
-    padding: .8em .9em;
+.logout-buttons button {
+    padding: .9em 0;
     font-size: .7rem;
+    text-align: center;
+    width: 80px;
 }
 
-.log-out-buttons button.sure {
-    background-color: transparent;
-    color: var(--mainGreen);
-    border: 1px solid var(--mainOrange);
+.logout-buttons button.sure {
+    background-color: #fff;
+    color: var(--mainOrange);
 }
 
-.log-out-buttons button.cancel {
+.logout-buttons button:hover {
+    opacity: .95;
+}
+
+.logout-buttons button.cancel {
     background-color: var(--mainOrange);
     color: #fff;
     border: 1px solid var(--mainOrange);
@@ -267,7 +273,7 @@ main h1 {
 .product-card {
     background-color: #fff;
     height: 250px;
-    width: 200px;
+    width: 240px;
     margin-bottom: 1em;
     border: 1px solid var(--mainOrange);
     border-radius: 6px;
@@ -341,14 +347,30 @@ main h1 {
     position: relative;
 }
 
+.hide-more .product-card {
+    width: 280px;
+    height: 280px;
+    border-color: var(--mainGreen);
+}
+
 .product-page .hide-more .description {
     font-size: 1rem;
     max-width: 400px;
     padding: 1em;
 }
 
-.product-page .hide-more .more {
+.description p {
+    padding-top: 1em;
+}
+
+.product-page .hide-more .more,
+.product-page .hide-more .product-info {
     display: none;
+}
+
+.hide-more .product-background {
+    height: 80%;
+    margin-bottom: 1em;
 }
 
 .go-back {

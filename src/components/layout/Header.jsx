@@ -36,7 +36,6 @@ const Header = () =>{
                     <li><Link to="/about">About us</Link></li>
                 </div>
                 <div>
-                    {!isLoggedIn && <li><Link to="/signup">Sign Up</Link></li>}
                     <li className='login' >
                         {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
                     {logOutModal && <LogOutModal />}  

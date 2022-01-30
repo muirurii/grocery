@@ -10,19 +10,20 @@ const CartButtons = ({product}) => {
             dispatch({
                 type:"increaseCount",
                 payload: id,
-            })
+            });
     }
     const decreaseItemCount = (id)=>{
             dispatch({
                 type:"reduceCount",
                 payload: id,
-            })
+            });
     }
     const removeFromCart = (id)=>{
             dispatch({
                 type:"removeFromCart",
                 payload: id,
-            })
+            });
+
     }
     return (
         <div className="buttons">
