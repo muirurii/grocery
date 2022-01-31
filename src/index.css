@@ -92,13 +92,6 @@ h1 {
     color: var(--mainGreen);
 }
 
-.top-banner {
-    min-height: 24px;
-    background-color: #0d3600;
-    transform: translateX(-1em);
-    width: calc(100% + 1em);
-}
-
 header {
     position: relative;
     min-height: 14vh;
@@ -116,10 +109,76 @@ header h1 i {
     color: var(--mainOrange);
 }
 
+.hamb {
+    background: #000;
+    width: 30px;
+    height: 4px;
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    cursor: pointer;
+    display: none;
+}
+
+.hamb::after,
+.hamb::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: transform 200ms 500ms ease-in-out;
+    transform: translateX(-3px);
+}
+
+.hamb::after {
+    top: -6px;
+}
+
+.hamb::before {
+    bottom: -6px;
+}
+
+.hamb.open::after,
+.hamb.open::before {
+    bottom: -6px;
+    transform: translateX(3px);
+}
+
+.small-menu {
+    background-color: var(--mainGreen);
+    position: fixed;
+    top: 14vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 210;
+    padding: 2em;
+    color: #fff;
+    transform: translateY(-120vh);
+    transition: 400ms ease-in-out;
+    display: none;
+}
+
+.small-menu.show {
+    transform: translateY(0);
+}
+
+.small-menu ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.small-menu a {
+    display: block;
+    color: #fff;
+    font-size: .9rem;
+}
+
 .main-nav {
     position: absolute;
     top: 1.5em;
-    right: 10%;
+    right: 15%;
 }
 
 .main-nav ul .big-screen-nav,
@@ -559,7 +618,7 @@ main h1 {
     border: 1px solid var(--fadeColor);
     border-radius: 6px;
     padding: 4em 6em;
-    margin-top: 2em;
+    margin: 4em 0;
     flex-direction: column;
     line-height: 2;
     position: relative;
@@ -856,24 +915,29 @@ main h1 {
 footer {
     min-height: 30vh;
     padding: 1em 2em;
-    background-color: var(--fadeColor);
+    background-color: var(--mainGreen);
     margin-top: 1em;
     display: grid;
     grid-template-columns: repeat( 3, 1fr);
     line-height: 2;
-    color: var(--mainGreen);
+    color: var(--fadeColor);
 }
 
 address {
     font-style: normal;
+    padding-bottom: 1em;
 }
 
 footer h3 {
     font-size: 1rem;
 }
 
+footer h1 {
+    color: inherit;
+}
+
 footer a {
-    color: var(--mainGreen);
+    color: inherit;
     padding-left: 1em;
     transition: 1s;
     font-size: .7rem;
@@ -885,10 +949,7 @@ footer a:hover {
 
 footer i {
     color: var(--mainOrange);
-}
-
-.icons i {
-    padding: 10px;
+    padding: 5px;
 }
 
 @media (max-width:400px) {
@@ -902,7 +963,20 @@ footer i {
 }
 
 @media (max-width:600px) {
-    .main-nav .big-screen-nav {
+    header .main-nav .big-screen-nav {
+        display: none;
+    }
+    .hamb,
+    .small-menu {
+        display: block;
+    }
+    header h1 {
+        padding-left: 1em;
+    }
+    .hero-bg {
+        grid-template-columns: 1fr;
+    }
+    .hero-bg .small-img {
         display: none;
     }
 }

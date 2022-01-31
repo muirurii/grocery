@@ -6,6 +6,12 @@ const StateReducer = (state,action)=>{
                 isCartOpen: action.payload === false ? false : !state.isCartOpen,
             }
         }
+        case "toogleMenu":{
+            return{
+                ...state,
+                menuStatus: !state.menuStatus,
+            }
+        }
         case "addToCart":{
             return{
                 ...state,

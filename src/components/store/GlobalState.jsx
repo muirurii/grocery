@@ -12,6 +12,7 @@ const initialState = [
         isLoggedIn: false,
         logOutModal:false,
         userName:' ',
+        menuStatus: false
     }
       
 ]
@@ -31,6 +32,7 @@ export const GlobalProvider = ({children}) => {
             isLoggedIn:state.isLoggedIn,
             logOutModal:state.logOutModal,
             userName:state.userName,
+            menuStatus: state.menuStatus,
             dispatch
        }        
        }>

@@ -34,7 +34,7 @@ const Footer = () => {
                    <i className="fas"></i>
                </div>
                <div>
-                   <h2>Greens</h2> 
+               <h1>GREENS<i className='fab fa-envira'></i> </h1>
                    Copyright&copy; 2022
                </div>
            </article>
