@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 const Hero = () => {
+    const navigate = useNavigate();
     return (
         <section className="hero">
             <section className="hero-bg">
@@ -12,7 +15,11 @@ const Hero = () => {
                     <p>
                         SHOP FRESH AND QUALITY PRODUCTS AT AFFORDABLE PRICES
                     </p>
-                    <button>Shop Now</button>
+                    <button onClick={
+                        ()=>{
+                           navigate('/shop') 
+                        }
+                    }>Shop Now</button>
                 </section>
         </section>
     );

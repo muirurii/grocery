@@ -1,8 +1,7 @@
 import ProductCard from "../../layout/Cart/ProductCard";
 import { useContext} from "react";
 import { GlobalContext } from "../../store/GlobalState";
-import { useParams } from "react-router";
-import { useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router";
 
 const ProductPage = () => {
     const {products} = useContext(GlobalContext);
