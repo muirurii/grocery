@@ -8,7 +8,7 @@
 :root {
     --mainGreen: #0d3600;
     --mainOrange: #f54500;
-    --fadeColor: #81d33591;
+    --fadeColor: #91fa2edc;
 }
 
 html {
@@ -104,6 +104,7 @@ header {
     min-height: 14vh;
     background-color: var(--fadeColor);
     padding: 1em 0 1em 1em;
+    box-shadow: 0px 2px 2px var(--mainGreen);
 }
 
 header h1 {
@@ -131,7 +132,7 @@ header h1 i {
 .main-nav button {
     display: block;
     padding: .6em .7em;
-    font-size: 0.8rem;
+    font-size: .9rem;
     color: var(--mainOrange);
 }
 
@@ -242,12 +243,65 @@ header h1 i {
 }
 
 .hero {
-    min-height: 50vh;
+    min-height: 60vh;
     overflow: hidden;
+    position: relative;
+    padding: 4em;
+    background: linear-gradient(to right, var(--fadeColor), rgba(155, 250, 46, 0.295));
 }
 
-.hero {
-    padding: 4em;
+.hero-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    z-index: -1;
+}
+
+.hero-bg div {
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.hero-bg .large-img {
+    background-image: url(https://images.pexels.com/photos/9705821/pexels-photo-9705821.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+
+.hero-bg .small-img {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr)
+}
+
+.hero-bg .small-img div:first-child {
+    background-image: url(https://images.pexels.com/photos/7843967/pexels-photo-7843967.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    animation: change-small-1 10s ease-in-out infinite alternate;
+}
+
+.hero-bg .small-img div:last-child {
+    background-image: url(https://images.pexels.com/photos/8931671/pexels-photo-8931671.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    animation: change-small-2 10s 4s ease-in-out infinite alternate;
+}
+
+@keyframes change-small-1 {
+    from {
+        background-image: url(https://images.pexels.com/photos/7843967/pexels-photo-7843967.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    }
+    to {
+        background-image: url(https://images.pexels.com/photos/7843994/pexels-photo-7843994.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    }
+}
+
+@keyframes change-small-2 {
+    from {
+        background-image: url(https://images.pexels.com/photos/8931671/pexels-photo-8931671.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    }
+    to {
+        background-image: url(https://images.pexels.com/photos/6682777/pexels-photo-6682777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    }
 }
 
 .hero-text p {
@@ -462,14 +516,15 @@ main h1 {
     top: 50%;
     background-color: var(--mainOrange);
     color: #fff;
-    width: 3em;
+    width: 2.5em;
     height: 3em;
     font-size: .8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     transform: translateY(-50%);
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
 
 .terms h2,
@@ -600,8 +655,8 @@ main h1 {
     top: 40px;
     left: 50%;
     transform: translateX( -50%);
-    z-index: 50;
     border-radius: 3px;
+    z-index: 300;
 }
 
 .close-cart {
@@ -622,12 +677,11 @@ main h1 {
 .cart::after {
     content: '';
     background-color: rgba(211, 221, 213, 0.466);
-    /* backdrop-filter: blur(20px); */
     width: 100vw;
     position: absolute;
     top: 0px;
     bottom: 0;
-    z-index: 45;
+    z-index: 201;
 }
 
 .cart h2 {
@@ -719,17 +773,22 @@ main h1 {
 
 .total {
     padding-right: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.total button {
+.total button,
+.total a {
     border: none;
     background-color: var(--mainGreen);
     color: #fff;
-    padding: 1em 0em;
+    padding: 1em 5em;
     text-align: center;
-    width: 90%;
     margin: 0 0 5% 5%;
     border-radius: 4px;
+    font-size: .7rem;
 }
 
 .categories {

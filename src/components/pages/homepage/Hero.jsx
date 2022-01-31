@@ -1,6 +1,13 @@
 const Hero = () => {
     return (
         <section className="hero">
+            <section className="hero-bg">
+                <div className="large-img"></div>
+                <div className="small-img">
+                <div></div>
+                <div></div>
+                </div>
+            </section>
                 <section className="hero-text">
                     <p>
                         SHOP FRESH AND QUALITY PRODUCTS AT AFFORDABLE PRICES

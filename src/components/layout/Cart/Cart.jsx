@@ -1,16 +1,17 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../store/GlobalState";
 import CartItem from "./CartItem";
 
 const Cart = () => {
 
-    const {products,isCartOpen,dispatch} = useContext(GlobalContext);
+    const {products,isCartOpen,dispatch,isLoggedIn} = useContext(GlobalContext);
 
     const closeCart = ()=>{
          dispatch({
             type:"toogleCart",
              payload:'',
-         })
+         });
     }
 
     const productsInCart = products.filter(product => product.isInCart);
@@ -30,7 +31,7 @@ const Cart = () => {
                 </ul>
                 <div className="total">
                   <label className="cost">Total:{totalPrice}</label>
-                  <button>Shop</button>
+                  {isLoggedIn ?<button>Shop</button> : <Link to={"login"}>Login to start shopping</Link>}
                 </div>
                 </>
             ): 'The cart is currently empty select items to add them'} 

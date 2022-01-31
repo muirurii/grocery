@@ -3,7 +3,7 @@ const StateReducer = (state,action)=>{
         case "toogleCart":{
             return{
                 ...state,
-                isCartOpen: !state.isCartOpen,
+                isCartOpen: action.payload === false ? false : !state.isCartOpen,
             }
         }
         case "addToCart":{
