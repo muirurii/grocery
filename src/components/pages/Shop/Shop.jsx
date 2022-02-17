@@ -1,5 +1,6 @@
 import SearchBar from "../../layout/SearchBar";
-import ProductCard from "../../layout/Cart/ProductCard";
+import ProductCard from "./ProductCard";
+import Categories from "../homepage/Categories";
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
 
@@ -10,6 +11,9 @@ const Shop = () => {
     .filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
     return ( 
         <main>
+            <section className="categories">
+                <Categories />
+            </section>
             <section className="shop">
                 <SearchBar />
             <section className="product-container">

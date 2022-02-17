@@ -8,7 +8,7 @@
 :root {
     --mainGreen: #0d3600;
     --mainOrange: #f54500;
-    --fadeColor: #91fa2edc;
+    --fadeColor: #d5fcb1d8;
 }
 
 html {
@@ -245,18 +245,23 @@ header h1 i {
     position: absolute;
     top: 101%;
     right: 0%;
-    min-height: 140px;
-    width: 250px;
-    background-color: var(--mainGreen);
+    min-height: 170px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid var(--mainGreen);
     border-radius: 3px;
     padding: 2em;
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .logout-modal p {
     font-size: .8rem;
     padding-bottom: 2em;
-    color: #fff;
+    color: var(--mainGreen);
     text-align: center;
 }
 
@@ -270,11 +275,11 @@ header h1 i {
     font-size: .7rem;
     text-align: center;
     width: 80px;
+    color: #fff;
 }
 
 .logout-buttons button.sure {
-    background-color: #fff;
-    color: var(--mainOrange);
+    background-color: var(--fadeColor);
 }
 
 .logout-buttons button:hover {
@@ -282,9 +287,8 @@ header h1 i {
 }
 
 .logout-buttons button.cancel {
-    background-color: var(--mainOrange);
-    color: #fff;
-    border: 1px solid var(--mainOrange);
+    background-color: var(--mainGreen);
+    margin-right: 1em;
 }
 
 .avatar {
@@ -521,7 +525,6 @@ main h1 {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    background-color: var(--fadeColor);
 }
 
 .how-it-works article {

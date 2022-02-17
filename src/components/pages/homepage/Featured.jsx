@@ -1,4 +1,4 @@
-import ProductCard from "../../layout/Cart/ProductCard";
+import ProductCard from "../Shop/ProductCard";
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
 
