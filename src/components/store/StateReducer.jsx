@@ -36,12 +36,6 @@ const StateReducer = (state,action)=>{
                 products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false,amount:1}: product )
             }
         }
-        case "filter":{
-            return{
-                ...state,
-                filterValue: action.payload
-            }
-        }
         case "search":{
             return{
                 ...state,

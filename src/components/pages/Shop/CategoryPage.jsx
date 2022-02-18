@@ -1,12 +1,21 @@
-import SearchBar from "./SearchBar";
-import ProductCard from "./ProductCard";
-import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
+import { useContext,useEffect } from "react";
+import { useParams } from "react-router";
+import ProductCard from "./ProductCard";
+import SearchBar from "./SearchBar";
 
-const Shop = () => {
+const CategoryPage = ()=>{
+
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[]);
+
     const {products,searchText} = useContext(GlobalContext);
 
-    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
+    const {category} = useParams();
+
+    const filteredProducts = products.filter(product=> product.category === category)
+    .filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
     return ( 
         <main>
             <section className="shop">
@@ -20,6 +29,7 @@ const Shop = () => {
             </section>
         </main>
     )
+
 }
 
-export default Shop;
+export default CategoryPage;

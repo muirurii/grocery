@@ -8,13 +8,11 @@ const initialState = [
         products:[...products],
         isCartOpen:false,
         searchText:"",
-        filterValue:"",
         isLoggedIn: false,
         logOutModal:false,
         userName:' ',
         menuStatus: false
     }
-      
 ]
 
 export const GlobalContext = createContext();
@@ -28,7 +26,6 @@ export const GlobalProvider = ({children}) => {
             products:state.products,
             isCartOpen: state.isCartOpen,
             searchText: state.searchText,
-            filterValue: state.filterValue,
             isLoggedIn:state.isLoggedIn,
             logOutModal:state.logOutModal,
             userName:state.userName,

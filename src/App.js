@@ -10,6 +10,7 @@ import LogIn from './components/pages/LogIn/LogIn';
 import SignUp from './components/pages/SignUp/SignUp';
 import Cart from './components/layout/Cart/Cart';
 import ProductPage from './components/pages/Shop/Product';
+import CategoryPage from './components/pages/Shop/CategoryPage';
 import { GlobalProvider } from './components/store/GlobalState';
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
           <Routes>
             <Route path="/grocery" element={ <Homepage />}></Route>
             <Route path="/shop" element={<Shop />}></Route>
-            <Route path="/shop/:productname" element={<ProductPage/>}></Route>
+            <Route path="/shop/:category/:productname" element={<ProductPage/>}></Route>
+            <Route path="/shop/:category" element={<CategoryPage/>}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/login" element={<LogIn />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>

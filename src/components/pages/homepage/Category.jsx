@@ -1,22 +1,9 @@
-import { useContext } from "react";
-import { GlobalContext } from "../../store/GlobalState";
 import {Link} from 'react-router-dom';
 
 const Category = ({text}) => {
-
-    const {dispatch} = useContext(GlobalContext);
-
     return (
-        <Link to="/shop">
-        <article onClick={
-            ()=>{
-                dispatch({
-                    type:"filter",
-                    payload:text.toLowerCase()
-                })
-                window.scrollTo(0,0);
-            }
-        }>
+        <Link to={`/shop/${text.toLowerCase()}`}>
+        <article>
             <h2>{text} <i className="fas fa-arrow-right"></i></h2>
         </article>
         </Link>

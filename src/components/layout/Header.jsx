@@ -3,6 +3,7 @@ import { GlobalContext } from '../store/GlobalState';
 import { useContext } from 'react';
 import LogOutModal from './LogOutModal';
 import Avatar from './Avatar';
+import MenuItems from './MenuItems';
 
 const Header = () =>{ 
 
@@ -20,7 +21,6 @@ const Header = () =>{
     });
     }
     const toogleMenu = ()=>{
-        console.log('h');
         dispatch({
         type:"toogleMenu",
         payload:'',
@@ -36,33 +36,23 @@ const Header = () =>{
             <h1>GREENS <i className='fab fa-envira'></i> </h1>
         </div>
         <nav className='main-nav'>
-            <ul>
                 <div className="big-screen-nav">
-                    <li><Link to="/grocery">Home</Link></li>
-                    <li><Link to="/shop">Shop</Link></li>
-                    <li><Link to="/about">About us</Link></li>
+                    <MenuItems />
                 </div>
-                <div>
-                    <li className='login' >
-                        {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
-                    {logOutModal && <LogOutModal />}  
-                    {isLoggedIn  && <Avatar name={userName}/>}
-                    </li>
-                </div>
-            </ul>
         </nav>
+        <div className='login' >
+                {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
+                {logOutModal && <LogOutModal />}  
+                {isLoggedIn  && <Avatar name={userName}/>}
+        </div>
         <div className="cart-count center" onClick={toogleCart}>
             <i className='fas fa-shopping-cart'></i>
             <p>{count}</p>
         </div>
         <div className={`hamb ${menuStatus ? 'open' : null}`} onClick={toogleMenu}></div>
-        <section className={`small-menu ${menuStatus ? ' show' : null}`}>
-                <ul>
-                    <li><Link to="/grocery">Home</Link></li>
-                    <li><Link to="/shop">Shop</Link></li>
-                    <li><Link to="/about">About us</Link></li>
-                </ul>
-            </section>
+        <section className={`small-menu ${menuStatus ? ' show' : null}`} onClick={toogleMenu}>
+            <MenuItems />
+        </section>
     </header>
     )
 }
