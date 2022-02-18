@@ -80,6 +80,7 @@ ul {
 
 a {
     text-decoration: none;
+    font-family: inherit;
 }
 
 button {
@@ -94,7 +95,7 @@ h1 {
 
 header {
     position: relative;
-    min-height: 14vh;
+    height: 130px;
     background-color: var(--fadeColor);
     padding: 1em 0 1em 1em;
     box-shadow: 0px 2px 2px var(--mainGreen);
@@ -164,21 +165,22 @@ header h1 i {
     transform: translateY(0);
 }
 
-.small-menu ul {
-    list-style: none;
-    line-height: 2;
-}
-
 .small-menu a {
     display: block;
     color: #fff;
     font-size: .9rem;
+    line-height: 2;
+}
+
+.main-nav,
+.login {
+    position: absolute;
 }
 
 .main-nav {
-    position: absolute;
-    top: 1.5em;
-    right: 15%;
+    bottom: .8em;
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .main-nav ul .big-screen-nav,
@@ -187,37 +189,108 @@ header h1 i {
     font-weight: bold;
 }
 
-.main-nav a,
-.main-nav button {
+.main-nav a {
     display: block;
-    padding: .6em .7em;
+    padding: 1em .7em;
     font-size: .9rem;
     color: var(--mainOrange);
+    transition: all 300ms ease-in-out;
+    text-transform: capitalize;
 }
 
-.main-nav .login button,
-.main-nav .login a {
-    background-color: var(--mainGreen);
+.main-nav a:hover,
+.main-nav .active-tab {
+    background-color: var(--fadeColor);
+    color: #fff;
+}
+
+.login {
+    top: 3.5em;
+    right: 2em;
+}
+
+.login a,
+.login button {
     border-radius: 3px;
     border: none;
+    padding: .7em;
+    font-size: .9rem;
+}
+
+.login a {
+    background-color: var(--mainGreen);
     color: #fff;
 }
 
-.main-nav a {
-    transition: 300ms ease-in-out;
-}
-
-.main-nav a:hover {
-    color: var(--mainGreen);
-}
-
-.main-nav .login a:hover {
-    color: #fff;
-}
-
-.main-nav .login button {
-    color: var(--mainGreen);
+.login button {
     background-color: transparent;
+    color: var(--mainGreen);
+}
+
+.logout-modal {
+    position: absolute;
+    top: 105%;
+    right: 0%;
+    min-height: 170px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid var(--mainGreen);
+    border-radius: 3px;
+    padding: 2em;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 201;
+}
+
+.logout-modal p {
+    font-size: .8rem;
+    padding-bottom: 2em;
+    color: var(--mainGreen);
+    text-align: center;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logout-buttons button {
+    padding: .9em 0;
+    font-size: .7rem;
+    text-align: center;
+    width: 80px;
+}
+
+.logout-buttons button.sure {
+    background-color: var(--fadeColor);
+    color: var(--mainGreen);
+}
+
+.logout-buttons button:hover {
+    opacity: .95;
+}
+
+.logout-buttons button.cancel {
+    background-color: var(--mainGreen);
+    color: #fff;
+    margin-right: 1em;
+}
+
+.avatar {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    background-color: var(--fadeColor);
+    border: 3px solid var(--mainGreen);
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .cart-count {
@@ -239,70 +312,6 @@ header h1 i {
     font-weight: bold;
     padding-top: 1em;
     color: var(--mainOrange);
-}
-
-.logout-modal {
-    position: absolute;
-    top: 101%;
-    right: 0%;
-    min-height: 170px;
-    width: 300px;
-    background-color: #fff;
-    border: 1px solid var(--mainGreen);
-    border-radius: 3px;
-    padding: 2em;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.logout-modal p {
-    font-size: .8rem;
-    padding-bottom: 2em;
-    color: var(--mainGreen);
-    text-align: center;
-}
-
-.logout-buttons {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.logout-buttons button {
-    padding: .9em 0;
-    font-size: .7rem;
-    text-align: center;
-    width: 80px;
-    color: #fff;
-}
-
-.logout-buttons button.sure {
-    background-color: var(--fadeColor);
-}
-
-.logout-buttons button:hover {
-    opacity: .95;
-}
-
-.logout-buttons button.cancel {
-    background-color: var(--mainGreen);
-    margin-right: 1em;
-}
-
-.avatar {
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 40px;
-    width: 40px;
-    background-color: var(--fadeColor);
-    border: 3px solid var(--mainGreen);
-    border-radius: 50%;
-    font-size: 1rem;
-    font-weight: bold;
 }
 
 .hero {
@@ -407,7 +416,7 @@ main h1 {
     background-color: #fff;
     height: 250px;
     width: 240px;
-    margin-bottom: 1em;
+    margin: 2em;
     border: 1px solid var(--mainOrange);
     border-radius: 6px;
     overflow: hidden;
@@ -698,15 +707,12 @@ main h1 {
 
 .search-bar input {
     padding: .5em 0 .5em 1em;
-    border-radius: 3px;
+    border-radius: 45px;
     border: 1px solid var(--mainOrange);
-    min-width: 310px;
-}
-
-.search-bar select {
-    min-width: 150px;
-    height: 30px;
-    margin: 0 1em;
+    width: 70vw;
+    height: 40px;
+    text-align: center;
+    outline-color: var(--mainOrange);
 }
 
 .cart section {
