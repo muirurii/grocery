@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 const SignUp = () => {
     return (
-        <main className="sign-up center">
+        <main className="sign-up">
+            <h1>Sign Up</h1>
             <form className="center form-layout">
                 <div>
                 <label htmlFor="name">Name</label><br />

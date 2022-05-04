@@ -1,7 +1,7 @@
 import { GlobalContext } from "../store/GlobalState";
 import { useContext } from "react";
 
-const LogOutModal = () => {
+const LogOutModal = ({name}) => {
     const{dispatch} = useContext(GlobalContext);
 
     const closeModal = ()=>{
@@ -20,10 +20,10 @@ const LogOutModal = () => {
         closeModal();
     }
     return (
-        <div className="logout-modal">
-            <p>Are you sure you want to log out</p>
+        <div className="logout-modal center">
+            <p>Logged in as {name}</p>
             <div className="logout-buttons">
-                <button className="cancel" onClick={closeModal}>Cancel</button>
+                <button className="cancel" onClick={closeModal}>Close</button>
                 <button className="sure" onClick={logOut}>Logout</button>
             </div>
         </div>

@@ -1,22 +1,24 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
 
-const SearchBar = () => {
+const SearchBar = ({searchClass}) => {
 
     const {dispatch,searchText} = useContext(GlobalContext);
-    const searchFunc = (e)=>{
+    const searchFunc = (payload)=>{
         dispatch({
             type:"search",
-            payload:e.target.value
-        }) 
+            payload
+        });
     }
+
     return (
-        <div className="search-bar center">
-                <form>
-                    <input type="text" id="search" placeholder="search products here" value={searchText}  onChange={searchFunc}/>
+        <div className={`search  ${searchClass}`}>
+                <form onSubmit={(e)=> e.preventDefault()} >
+                    <input type="text"  placeholder="search products here" 
+                    value={searchText}  onChange={(e)=>searchFunc(e.target.value)}/>
                 </form>
         </div>
-    )
+    );
 }
 
 export default SearchBar;

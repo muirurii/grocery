@@ -6,14 +6,16 @@ const Footer = () => {
            <address>
                <h3>Contacts</h3>
                <div className="icons">
-               <i className="fab fa-facebook"></i>
-               <i className="fab fa-instagram"></i>
-               <i className="fab fa-twitter"></i>
-               <i className="fab fa-email"></i>
-               </div>
-               <div>
                    <i className="fas fa-phone"></i>
-                   +2547666255322
+                   <span>+2547666255322</span> <br />
+                   <i className="fab fa-facebook"></i>
+                   <span>greensstores</span> <br />
+                   <i className="fab fa-instagram"></i>
+                   <span>greensstores</span> <br />
+                   <i className="fab fa-twitter"></i>
+                   <span>greensstores</span> <br />
+                   <i className="fab fa-email"></i>
+                   <span>greensstores</span> <br />
                </div>
            </address>
            <article>
@@ -26,15 +28,8 @@ const Footer = () => {
                </ul>
            </article>
            <article>
-               <h3>Partners</h3>
                <div>
-                   <i className="fas"></i>
-                   <i className="fas"></i>
-                   <i className="fas"></i>
-                   <i className="fas"></i>
-               </div>
-               <div>
-               <h1>GREENS<i className='fab fa-envira'></i> </h1>
+               <h1 className="logo">G<i className='fab fa-envira'></i>EENS</h1>
                    Copyright&copy; 2022
                </div>
            </article>

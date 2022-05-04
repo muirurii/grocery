@@ -22,7 +22,7 @@ const Cart = () => {
     return isCartOpen && (
          <div className="cart">
             <section>
-                <button className="close-cart" onClick={closeCart}><i className="fas fa-arrow-left"></i></button>
+                <button className="close-cart" onClick={closeCart}><i className="fas fa-arrow-left"></i> &nbsp;Back</button>
             <h2>Selected Products</h2>
             {productsInCart.length ? (
                 <>
@@ -30,11 +30,11 @@ const Cart = () => {
                     {productsInCart.map((product,index)=> <CartItem key={index} product={product} />)}
                 </ul>
                 <div className="total">
-                  <label className="cost">Total:{totalPrice}</label>
-                  {isLoggedIn ?<button>Shop</button> : <Link to={"login"}>Login to start shopping</Link>}
+                  <label className="cost">Total:${totalPrice}</label>
+                  {isLoggedIn ?<button>Check Out</button> : <Link to={"login"}>Login to start shopping</Link>}
                 </div>
                 </>
-            ): 'The cart is currently empty select items to add them'} 
+            ): <p className="center">The cart is currently empty select items to add them</p>} 
             </section>
         </div>
     )

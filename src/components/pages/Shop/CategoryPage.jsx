@@ -19,7 +19,7 @@ const CategoryPage = ()=>{
     return ( 
         <main>
             <section className="shop">
-                <SearchBar />
+            <SearchBar searchClass = "search-bar" />
             <section className="product-container">
             {   filteredProducts.length ?
                 filteredProducts.map((product,index)=>{

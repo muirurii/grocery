@@ -1,26 +1,24 @@
-import { useNavigate } from "react-router";
+import SearchBar from "../Shop/SearchBar";
+import {useNavigate} from 'react-router';
+import image from '../../../assets/bg.jpg'
+
 
 const Hero = () => {
+
     const navigate = useNavigate();
+
+    const toShop = () =>{
+        navigate('/shop');
+    }
+
     return (
         <section className="hero">
-            <section className="hero-bg">
-                <div className="large-img"></div>
-                <div className="small-img">
-                <div></div>
-                <div></div>
-                </div>
+            <img src={image} alt="Hero background" />
+        <h2>Get <span className='highlight'>started</span> by having a look at our <span className='highlight'>store.</span></h2>
+            <section className="center">
+                <SearchBar searchClass="hero-search"/>
+                <button onClick={toShop} className="cta center"><i className="fas fa-search"></i></button>
             </section>
-                <section className="hero-text">
-                    <p>
-                        SHOP FRESH AND QUALITY PRODUCTS AT AFFORDABLE PRICES
-                    </p>
-                    <button onClick={
-                        ()=>{
-                           navigate('/shop') 
-                        }
-                    }>Shop Now</button>
-                </section>
         </section>
     );
 }

@@ -7,9 +7,9 @@ const Homepage = () => {
     return (
         <main>
             <Hero />
+            <Categories />
             <Featured />
             <HowItWorks />
-            <Categories />
         </main>
     )
 }

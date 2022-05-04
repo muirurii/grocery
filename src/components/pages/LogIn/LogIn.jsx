@@ -11,9 +11,9 @@ const LogIn = () => {
 
     useEffect(()=>{
          dispatch({
-        type:"toogleCart",
-        payload: false
-    });
+         type:"toogleCart",
+         payload: false
+        });
     },[]);
    
 
@@ -29,7 +29,8 @@ const LogIn = () => {
         navigate('/shop');
     }
     return (
-        <main className="log-in center">
+        <main className="log-in">
+            <h1>Log In</h1>
             <form className="center form-layout" onSubmit={logIn}>
                 <div>
                 <label htmlFor="name">Username</label><br />

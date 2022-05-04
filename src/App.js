@@ -6,6 +6,7 @@ import Homepage from './components/pages/homepage/Homepage';
 import Loader from './components/loader/Loader';
 import Shop from './components/pages/Shop/Shop';
 import About from './components/pages/About/About';
+import ContactPage from './components/pages/Contact/ContactPage'
 import LogIn from './components/pages/LogIn/LogIn';
 import SignUp from './components/pages/SignUp/SignUp';
 import Cart from './components/layout/Cart/Cart';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/shop/:category/:productname" element={<ProductPage/>}></Route>
             <Route path="/shop/:category" element={<CategoryPage/>}></Route>
             <Route path="/about" element={<About />}></Route>
+            <Route path="/contact" element={<ContactPage />}></Route>
             <Route path="/login" element={<LogIn />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
           </Routes>

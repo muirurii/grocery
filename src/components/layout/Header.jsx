@@ -32,29 +32,24 @@ const Header = () =>{
 
     return(
     <header>
-        <div className="logo">
-            <h1>GREENS <i className='fab fa-envira'></i> </h1>
-        </div>
-        <nav className='main-nav'>
-                <div className="big-screen-nav">
-                    <MenuItems />
-                </div>
-        </nav>
+        <h1 className="logo">G<i className='fab fa-envira'></i>EENS</h1>
+        <MenuItems navClass={`small-menu ${menuStatus ? ' show' : null}`} menuToogle = {toogleMenu}/>
+        <MenuItems navClass={'main-nav center'} />
         <div className='login' >
-                {isLoggedIn ? <button onClick ={openModal}>Logout</button>: <Link to={'/logIn'}>LogIn</Link>}
-                {logOutModal && <LogOutModal />}  
-                {isLoggedIn  && <Avatar name={userName}/>}
+                {logOutModal && <LogOutModal name={userName}/>}  
+                {isLoggedIn  ? (
+                    <div onClick={openModal}>
+                      <Avatar name={userName}/>  
+                    </div>
+                ): <Link to={'/logIn'}>Log in</Link>  }
         </div>
         <div className="cart-count center" onClick={toogleCart}>
             <i className='fas fa-shopping-cart'></i>
             <p>{count}</p>
         </div>
         <div className={`hamb ${menuStatus ? 'open' : null}`} onClick={toogleMenu}></div>
-        <section className={`small-menu ${menuStatus ? ' show' : null}`} onClick={toogleMenu}>
-            <MenuItems />
-        </section>
     </header>
-    )
+    );
 }
 
 export default Header;

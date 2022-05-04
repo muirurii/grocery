@@ -9,9 +9,9 @@ const Shop = () => {
     const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
     return ( 
         <main>
-            <section className="shop">
-                <SearchBar />
-            <section className="product-container">
+            <section className ="shop">
+                <SearchBar  searchClass = "search-bar"/>
+            <section className = "product-container">
             {   filteredProducts.length ?
                 filteredProducts.map((product,index)=>{
                     return <ProductCard key={product.id} product = {product}/>

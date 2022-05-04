@@ -26,12 +26,12 @@ const ProductCard = ({product}) => {
                 <div className="product-background" style={{backgroundImage:`url(${product.img})`}}></div>
                 <div className="product-info">
                     <p><strong>{product.name}</strong></p>
-                    <strong>{product.price}$ per </strong>
+                    <strong>${product.price} per </strong>
                     <span>{product.amount_each}</span>
                 </div>
                 {isThisInCart ? <button onClick={toggleCart} className="view-in-cart">View in cart</button> :
                 <button onClick={addToCart} className="add-cart">Add to cart <i className="fas fa-cart-plus"></i></button>}
-               <Link to={`/shop/${product.category.toLowerCase()}/${product.name.toLowerCase()}`}><button onClick={toTop} className="more">More</button></Link>
+               <Link to={`/shop/${product.category.toLowerCase()}/${product.name.toLowerCase()}`}><button onClick={toTop} className="more">View</button></Link>
             </article>
         
     )

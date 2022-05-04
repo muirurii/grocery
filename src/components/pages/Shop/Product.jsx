@@ -16,7 +16,7 @@ const ProductPage = () => {
             <h1>{product[0].name}</h1>
             <div className="hide-more">
             <button className="go-back" onClick={()=>navigate(-1)}>
-                <i className="fas fa-arrow-left"></i></button>
+                <i className="fas fa-arrow-left"></i> &nbsp; Back</button>
                 <ProductCard product={product[0]}/>
                   <div className="description">
                   <h4>{product[0].price}$ per {product[0].amount_each}</h4>
