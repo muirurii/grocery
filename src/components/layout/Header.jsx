@@ -7,7 +7,7 @@ import MenuItems from './MenuItems';
 
 const Header = () =>{ 
 
-    const {isLoggedIn,logOutModal,dispatch,userName,products,menuStatus} = useContext(GlobalContext);
+    const {isLoggedIn,logOutModal,dispatch,userName,cartProducts,menuStatus} = useContext(GlobalContext);
 
     const openModal = ()=>{
         dispatch({
@@ -27,8 +27,7 @@ const Header = () =>{
     });
     }
 
-    let count = 0;
-    products.forEach(product=> product.isInCart && count++)
+    const count = cartProducts.length;
 
     return(
     <header>

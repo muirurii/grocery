@@ -24,7 +24,7 @@ const HowItWorks = () => {
            {
                steps.map((step,index)=>{
                  return(
-                    <article className="center how-card" data-num={index + 1} >
+                    <article className="center how-card" data-num={index + 1} key={index} >
                         <div>
                         <i className={`fas ${step.icon}`}></i>
                         </div>

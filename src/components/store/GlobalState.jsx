@@ -3,23 +3,23 @@ import products from "./products";
 import StateReducer from "./StateReducer";
 
 
-const initialState = [
-      {
+const initialState = {
         products:[...products],
         isCartOpen:false,
         searchText:"",
         isLoggedIn: false,
         logOutModal:false,
         userName:' ',
-        menuStatus: false
+        menuStatus: false,
+        cartProducts:[]
     }
-]
+
 
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
 
-    const [state,dispatch] = useReducer(StateReducer,initialState[0]);
+const [state,dispatch] = useReducer(StateReducer,initialState);
 
     return (
        <GlobalContext.Provider value={{
@@ -30,6 +30,7 @@ export const GlobalProvider = ({children}) => {
             logOutModal:state.logOutModal,
             userName:state.userName,
             menuStatus: state.menuStatus,
+            cartProducts:state.cartProducts,
             dispatch
        }        
        }>

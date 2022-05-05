@@ -2,6 +2,8 @@ import ProductCard from "./ProductCard";
 import { useContext} from "react";
 import { GlobalContext } from "../../store/GlobalState";
 import { useParams, useNavigate } from "react-router";
+import useScrollToTop from "../../../customHooks/useScroll";
+
 
 const ProductPage = () => {
     const {products} = useContext(GlobalContext);
@@ -11,6 +13,9 @@ const ProductPage = () => {
 
     const product = products.filter(product => product.name.toLowerCase() === productname);
     const related = products.filter(prod=> prod.category === product[0].category).filter(prod=> prod.id !== product[0].id).slice(0,4);
+    
+    useScrollToTop();
+
     return (
         <main className="product-page">
             <h1>{product[0].name}</h1>

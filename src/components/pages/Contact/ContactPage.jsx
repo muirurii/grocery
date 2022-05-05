@@ -1,5 +1,9 @@
+import useScrollToTop from "../../../customHooks/useScroll";
 
 const ContactPage = ()=>{
+
+    useScrollToTop();
+
     return(
         <main className="contact-page">
             <h1>Send us a message</h1>

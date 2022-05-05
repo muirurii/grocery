@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
 
-    const {products,isCartOpen,dispatch,isLoggedIn} = useContext(GlobalContext);
+    const {cartProducts,isCartOpen,dispatch,isLoggedIn} = useContext(GlobalContext);
 
     const closeCart = ()=>{
          dispatch({
@@ -14,20 +14,21 @@ const Cart = () => {
          });
     }
 
-    const productsInCart = products.filter(product => product.isInCart);
-    const totalPrice = productsInCart.reduce((total ,product)=>{
-            return total + product.price* product.amount
-    },0)
+    const totalPrice = cartProducts.reduce((total ,product)=>{
+            return total + product.price * product.amount
+    },0);
+
+    const count = cartProducts.length;
 
     return isCartOpen && (
          <div className="cart">
             <section>
                 <button className="close-cart" onClick={closeCart}><i className="fas fa-arrow-left"></i> &nbsp;Back</button>
-            <h2>Selected Products</h2>
-            {productsInCart.length ? (
+            <h2>Selected Products {`(${count})`} </h2>
+            {cartProducts.length ? (
                 <>
                 <ul>
-                    {productsInCart.map((product,index)=> <CartItem key={index} product={product} />)}
+                    {cartProducts.map((product,index)=> <CartItem key={index} product={product} />)}
                 </ul>
                 <div className="total">
                   <label className="cost">Total:${totalPrice}</label>

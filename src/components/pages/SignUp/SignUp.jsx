@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
+import useScrollToTop from "../../../customHooks/useScroll";
+
+
 const SignUp = () => {
+
+    useScrollToTop();
+
     return (
         <main className="sign-up">
             <h1>Sign Up</h1>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from '../../store/GlobalState'
 import { useContext, useState,useEffect} from 'react';
 import {useNavigate } from "react-router";
+import useScrollToTop from "../../../customHooks/useScroll";
 
 const LogIn = () => {
 
@@ -14,7 +15,7 @@ const LogIn = () => {
          type:"toogleCart",
          payload: false
         });
-    },[]);
+    },[dispatch]);
    
 
     const logIn = (e)=>{
@@ -28,6 +29,9 @@ const LogIn = () => {
         });
         navigate('/shop');
     }
+
+    useScrollToTop();
+
     return (
         <main className="log-in">
             <h1>Log In</h1>

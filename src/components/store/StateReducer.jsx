@@ -15,25 +15,25 @@ const StateReducer = (state,action)=>{
         case "addToCart":{
             return{
                 ...state,
-                products:state.products.map(prod=> prod.id === action.payload ? {...prod,isInCart:true}: prod)
+                cartProducts:[...state.cartProducts,action.payload]
             }
         }
         case "increaseCount" :{
             return{
                 ...state,
-                products: state.products.map(product=> product.id === action.payload ? {...product,amount: product.amount+1} : product)
+                cartProducts: state.cartProducts.map(product=> product.id === action.payload ? {...product,amount: product.amount+1} : product)
             }
         }
         case "reduceCount" :{
             return{
                 ...state,
-                products: state.products.map(product=> product.id === action.payload && product.amount > 1 ? {...product,amount: product.amount-1} : product)
+                cartProducts: state.cartProducts.map(product=> product.id === action.payload ? {...product,amount: product.amount > 1 ? product.amount-1 : 1 } : product)
             }
         }
         case "removeFromCart":{
             return{
                 ...state,
-                products:state.products.map(product => action.payload === product.id ? {...product,isInCart:false,amount:1}: product )
+                cartProducts: state.cartProducts.filter(product=> product.id !== action.payload)
             }
         }
         case "search":{
