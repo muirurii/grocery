@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="center">
            <address>
                <h3>Contacts</h3>
                <div className="icons">
@@ -14,7 +14,7 @@ const Footer = () => {
                    <span>greensstores</span> <br />
                    <i className="fab fa-twitter"></i>
                    <span>greensstores</span> <br />
-                   <i className="fab fa-email"></i>
+                   <i className="fas fa-envelope"></i>
                    <span>greensstores</span> <br />
                </div>
            </address>
@@ -30,7 +30,6 @@ const Footer = () => {
            <article>
                <div>
                <h1 className="logo">G<i className='fab fa-envira'></i>EENS</h1>
-                   Copyright&copy; 2022
                </div>
            </article>
         </footer>

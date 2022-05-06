@@ -74,6 +74,10 @@ textarea {
     padding-left: 1em;
 }
 
+textarea {
+    resize: none;
+}
+
 button {
     border: none;
     cursor: pointer;
@@ -88,6 +92,10 @@ header {
     justify-content: flex-start;
     align-items: center;
     z-index: 10;
+}
+
+.hide-signin .sign-up-link {
+    display: none;
 }
 
 .logo {
@@ -210,7 +218,7 @@ header {
 }
 
 .hamb::after {
-    top: -5.5px;
+    top: -5px;
 }
 
 .hamb::before {
@@ -272,6 +280,19 @@ main h1 {
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
+    position: relative;
+}
+
+main h1::after {
+    content: '';
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 120px;
+    z-index: -1;
+    background: linear-gradient(to right, transparent, var(--mainOrange), transparent);
 }
 
 .hero {
@@ -396,9 +417,9 @@ main h1 {
     background: transparent;
     top: 0;
     right: 0;
-    padding: .3em 2px 2.5em 2em;
+    padding: .3em 2px 2em 2em;
     text-align: left;
-    width: 70px;
+    width: 65px;
     z-index: 1;
 }
 
@@ -574,7 +595,7 @@ main h1 {
     position: relative;
     width: fit-content;
     border-radius: 6px;
-    background-color: #ffffff5f;
+    background-color: #8a89890d;
     box-shadow: .5px .5px 2px #cccccc75, inset .5px .5px 2px #cccccc75;
 }
 
@@ -854,14 +875,15 @@ footer {
     padding: 1em 2em;
     background-color: var(--fadeColor);
     margin-top: 1em;
-    display: grid;
-    grid-template-columns: repeat( 3, 1fr);
+    flex-wrap: wrap;
     line-height: 2;
     color: #fff;
     font-size: .8rem;
 }
 
-address {
+footer>address,
+footer>article {
+    width: 320px;
     font-style: normal;
     padding-bottom: 1em;
 }
@@ -878,11 +900,11 @@ footer h1 {
 footer a {
     color: inherit;
     padding-left: 1em;
-    transition: 300ms;
+    transition: 200ms linear;
 }
 
 footer a:hover {
-    color: var(--mainOrange);
+    text-decoration: underline var(--mainGreen);
 }
 
 footer i {
@@ -890,13 +912,7 @@ footer i {
     padding: 5px;
 }
 
-@media (max-width:400px) {
-    footer {
-        display: block;
-    }
-}
-
-@media (min-width:650px) {
+@media (min-width:720px) {
     header {
         justify-content: space-evenly;
     }
@@ -907,10 +923,10 @@ footer i {
     .main-nav {
         display: flex;
         font-weight: bold;
-        flex-basis: 60vw;
+        flex-basis: 70vw;
     }
     .main-nav li {
-        padding: 1em;
+        padding-right: 1.5em;
         font-size: 1rem;
         color: #fff;
     }

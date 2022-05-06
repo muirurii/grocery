@@ -8,7 +8,7 @@ const MenuItems = ({navClass,menuToogle})=>{
             <li><Link to='/shop'>Shop</Link></li>
             <li><Link to='/about'>About</Link></li>
             <li><Link to='/contact'>Contact Us</Link></li>
-            <li><Link to='/signup'>Sign Up</Link></li>
+            <li className='sign-up-link'><Link to='/signup'>Sign Up</Link></li>
         </ul>
     );
 }

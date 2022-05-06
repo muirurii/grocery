@@ -30,7 +30,7 @@ const Header = () =>{
     const count = cartProducts.length;
 
     return(
-    <header>
+    <header className={isLoggedIn ? 'hide-signin' : null}>
         <h1 className="logo">G<i className='fab fa-envira'></i>EENS</h1>
         <MenuItems navClass={`small-menu ${menuStatus ? ' show' : null}`} menuToogle = {toogleMenu}/>
         <MenuItems navClass={'main-nav center'} />

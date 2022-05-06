@@ -6,7 +6,7 @@ const AboutText = () => {
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
                     Unde non similique aut eum expedita alias dignissimos ducimus officia 
-                    molestiae deserunt id doloribus, <br />
+                    molestiae deserunt id doloribus, <br /> <br />
                      Rochitecto aperiam repellat perspiciatis consectetur omnis illo!
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. At alias rerum repellat, 
                      itaque quae error quod voluptate necessitatibus sed quaerat eligendi eos nisi ipsa 
