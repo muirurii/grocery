@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../store/GlobalState";
-
+import {IoAddCircleSharp,IoBagRemoveSharp} from "react-icons/io5";
+import {IoIosRemoveCircle} from "react-icons/io";
 
 const CartButtons = ({product}) => {
     
@@ -27,10 +28,10 @@ const CartButtons = ({product}) => {
     }
     return (
         <div className="buttons">
-                <button className="decrement"  onClick={()=>decreaseItemCount(product.id)}>Reduce</button>
+                <button className="decrement"  onClick={()=>decreaseItemCount(product.id)}><IoIosRemoveCircle /></button>
                 <span>{product.amount}</span>
-                <button className="increment" onClick={()=>increaseItemCount(product.id)}>Add</button>
-                <button className="remove" onClick={()=>removeFromCart(product.id)}>Remove</button>
+                <button className="increment" onClick={()=>increaseItemCount(product.id)}><IoAddCircleSharp /></button>
+                <button className="remove" onClick={()=>removeFromCart(product.id)}><IoBagRemoveSharp /></button>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const Hero = () => {
     return (
         <section className="hero">
             <img src={image} alt="Hero background" />
-        <h2>Get <span className='highlight'>started</span> by having a look at our <span className='highlight'>store.</span></h2>
+        <h2>Get <span className='highlight'>started</span> by having a look at our <span className='highlight'>store</span>.</h2>
             <section className="center">
                 <SearchBar searchClass="hero-search"/>
                 <button onClick={toShop} className="cta center"><i className="fas fa-search"></i></button>

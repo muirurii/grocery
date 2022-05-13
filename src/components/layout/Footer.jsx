@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="center">
+        <footer>
            <address>
                <h3>Contacts</h3>
                <div className="icons">
@@ -27,7 +27,7 @@ const Footer = () => {
                    <li><Link to={'/signup'}>Sign up</Link></li>
                </ul>
            </article>
-           <article>
+           <article className="center">
                <div>
                <h1 className="logo">G<i className='fab fa-envira'></i>EENS</h1>
                </div>
