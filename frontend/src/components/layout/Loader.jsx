@@ -1,9 +1,9 @@
-import {FiLoader} from 'react-icons/fi'
+import {BiLoaderAlt} from 'react-icons/bi'
 
 const Loader = () => {
     return (
         <div className="loader center">
-            <FiLoader />
+            <BiLoaderAlt />
         </div>
     )
 }

@@ -1,14 +1,17 @@
 import { createContext, useReducer } from "react";
-// import products from "./products";
 import StateReducer from "./StateReducer";
 
 const initialState = {
   products: [],
   isCartOpen: false,
   searchText: "",
-  isLoggedIn: false,
+  user:{
+    isLoggedIn: false,
+    name:'',
+    email:'',
+    token:''
+  },
   logOutModal: false,
-  userName: " ",
   menuStatus: false,
   cartProducts: [],
 };
@@ -24,9 +27,8 @@ export const GlobalProvider = ({ children }) => {
         products: state.products,
         isCartOpen: state.isCartOpen,
         searchText: state.searchText,
-        isLoggedIn: state.isLoggedIn,
+        user: state.user,
         logOutModal: state.logOutModal,
-        userName: state.userName,
         menuStatus: state.menuStatus,
         cartProducts: state.cartProducts,
         dispatch,

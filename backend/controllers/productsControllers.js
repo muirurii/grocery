@@ -14,8 +14,9 @@ const getProduct = async(req, res) => {
     const params = req.params;
     try {
         const product = await Product.findOne({ _id: params.product });
-        const related = await Product.find({ category: product.category }).limit(4);
-        res.json({ product, related });
+        const related = await Product.find({ category: product.category }).limit(5);
+        res.json({ product, related: related.filter(p => p.name !== product.name) });
+
     } catch (err) {
         res.sendStatus(500);
     }

@@ -35,6 +35,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     position: relative;
     color: var(--fadeColor);
+    overflow-x: hidden;
 }
 
 .center {
@@ -45,10 +46,21 @@ body {
 
 .loader {
     z-index: 250;
-    background-color: var(--fadeColor);
+    background-color: rgba(255, 255, 255, 0.849);
     backdrop-filter: blur(10px);
     width: 100vw;
     height: 100vh;
+}
+
+.loader svg {
+    transform: rotate(0deg) scale(3);
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotateZ(360deg) scale(3);
+    }
 }
 
 ul {
@@ -84,7 +96,7 @@ button {
 
 header {
     position: relative;
-    height: 100px;
+    height: 80px;
     background-color: var(--fadeColor);
     padding: 1em;
     display: flex;
@@ -93,13 +105,9 @@ header {
     z-index: 10;
 }
 
-.hide-signin .sign-up-link {
-    display: none;
-}
-
 .logo {
     font-family: 'Goldman', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--mainGreen);
 }
 
@@ -115,13 +123,13 @@ header {
 .login {
     position: absolute;
     top: 50%;
-    right: 2em;
+    right: 1em;
     transform: translateY(-50%);
 }
 
 .login a {
     border-radius: 4px;
-    padding: .8em 1.2em;
+    padding: .6em 1.2em;
     font-size: .9rem;
     color: #fff;
     background-color: var(--mainGreen);
@@ -133,7 +141,7 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-20%);
-    right: calc(2em + 50px);
+    right: 30px;
     min-height: 60px;
     min-width: 170px;
     background-color: #ffffff;
@@ -174,11 +182,11 @@ header {
 
 .avatar {
     position: absolute;
-    right: 1em;
+    right: 0em;
     top: 50%;
     transform: translateY(-50%);
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
     background-color: #fff;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -197,52 +205,39 @@ header {
 }
 
 .hamb {
-    background: #fff;
-    width: 24px;
-    height: 3.2px;
+    color: #fff;
     position: absolute;
-    left: 1em;
-    bottom: 1em;
+    left: 1.5em;
+    bottom: 5px;
     cursor: pointer;
-    transition: 400ms ease-in-out;
 }
 
-.hamb::after,
-.hamb::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: inherit;
+.hamb svg {
+    transform: scale(3, 2);
+    transition: 400ms;
 }
 
-.hamb::after {
-    top: -5px;
-}
-
-.hamb::before {
-    bottom: -5px;
-}
-
-.hamb.open {
-    transform: translateX(2px);
+.open svg {
+    transform: scale(3, 2) rotateZ(360deg);
 }
 
 .small-menu {
     background-color: #fff;
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 0;
     width: 100vw;
     height: 100vh;
     padding: 2em;
     z-index: 2;
     transform: translateX(-120vw);
-    transition: 400ms ease-in-out;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out, transform 200ms linear;
 }
 
 .small-menu.show {
     transform: translateX(0);
+    opacity: 1;
 }
 
 .small-menu a {
@@ -258,7 +253,7 @@ header {
     top: 90px;
     width: 30px;
     height: 30px;
-    background-color: #ccc;
+    background-color: #fff;
     border-radius: 50%;
     cursor: pointer;
     z-index: 200;
@@ -822,13 +817,13 @@ main h1::after {
     width: 250px;
     height: 100px;
     justify-content: space-evenly;
-    box-shadow: .5px 0px 1.5px #cacacac2;
-    background-color: rgba(204, 204, 204, 0.1);
-    border-radius: 10px;
+    border: 1px solid var(--fadeColor);
+    border-radius: 5px;
     cursor: pointer;
     margin: 0em 3em 2em 3em;
     position: relative;
     overflow: hidden;
+    transition: border 100ms 250ms;
 }
 
 .categories article::after,
@@ -838,12 +833,16 @@ main h1::after {
     top: 0;
     left: 0;
     height: 100%;
-    width: 5px;
+    width: 7px;
     transition: transform 500ms ease-in-out;
 }
 
+.categories article:hover {
+    border-color: var(--mainGreen);
+}
+
 .categories article::after {
-    background-color: var(--mainOrange);
+    background-color: var(--fadeColor);
 }
 
 .categories article::before {
@@ -879,7 +878,7 @@ main h1::after {
 }
 
 .categories article:hover i {
-    transform: scaleX(3.2) translateX(2px);
+    transform: scaleX(3.2);
     color: var(--mainGreen);
 }
 
@@ -898,6 +897,60 @@ main h1::after {
 
 .meats svg {
     color: rgb(238, 1, 1);
+}
+
+.profile {
+    padding: 2em 1em;
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.profile h2 {
+    padding: 1em 0;
+    font-size: 1.4rem;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.profile table {
+    font-weight: normal;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.profile thead {
+    border: 1px solid var(--mainGreen);
+    background-color: var(--mainGreen);
+}
+
+.profile th {
+    padding: .4em 0;
+    font-size: 1rem;
+}
+
+.profile td {
+    font-size: .9rem;
+    padding: .3em 0;
+    text-align: center;
+    border: 1px solid var(--mainGreen);
+    border-top: none;
+}
+
+.profile td:not(:first-child) {
+    border-left: none;
+}
+
+.done {
+    color: var(--mainGreen);
+}
+
+.pending {
+    color: #ff3a3a;
 }
 
 footer {
@@ -952,6 +1005,9 @@ footer i {
     .small-menu {
         display: none;
     }
+    .avatar {
+        right: 2em;
+    }
     .main-nav {
         display: flex;
         font-weight: bold;
@@ -983,8 +1039,8 @@ footer i {
         width: 70vw;
         margin-left: 15vw;
     }
-    .categories article {
-        margin: 0;
+    .profile {
+        grid-template-columns: 1fr 2fr;
     }
     footer {
         justify-content: center;

@@ -11,6 +11,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/api/products', require('./routes/products'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/transactions', require('./routes/transactions'));
 
 app.all('*', (err, req, res, next) => {
     console.log(error)

@@ -13,6 +13,7 @@ import Cart from './components/layout/Cart/Cart';
 import ProductPage from './components/pages/Shop/ProductPage';
 import CategoryPage from './components/pages/Shop/CategoryPage';
 import { GlobalProvider } from './components/store/GlobalState';
+import Profile from './components/pages/Profile/Profile';
 
 function App() {
   const[loadingState,setLoadingState] = useState(true);
@@ -27,7 +28,7 @@ function App() {
           <Header />
           <Cart />
           <Routes>
-            <Route path="/grocery" element={ <Homepage />}></Route>
+            <Route path="/" element={ <Homepage />}></Route>
             <Route path="/shop" element={<Shop />}></Route>
             <Route path="/shop/:category/:productId" element={<ProductPage/>}></Route>
             <Route path="/shop/:category" element={<CategoryPage/>}></Route>
@@ -35,6 +36,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />}></Route>
             <Route path="/login" element={<LogIn />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
           <Footer />
       </Router>

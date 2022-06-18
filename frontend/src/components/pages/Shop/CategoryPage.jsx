@@ -5,29 +5,32 @@ import ProductCard from "./ProductCard";
 import SearchBar from "./SearchBar";
 import useScrollToTop from "../../../customHooks/useScroll";
 import fetchData from "../../../customHooks/fetchData";
+import Loader from "../../layout/Loader";
 
 const CategoryPage = () => {
   const { searchText } = useContext(GlobalContext);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { category } = useParams();
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchText.toLowerCase())
   );
-
+  
   useScrollToTop();
 
-  useEffect(() => {
+  useEffect(() => {  
+    setLoading(true);
     const getData = async () => {
       const res = await fetchData(`/products/category/${category}`);
       setProducts([...res.data.products]);
-      console.log(res.data.products);
+      setLoading(false);
     };
     getData();
   }, [category]);
 
-  return (
+  return loading ? <Loader /> : (
     <main>
       <section className="shop">
         <SearchBar searchClass="search-bar" />

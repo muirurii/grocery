@@ -1,13 +1,14 @@
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
-import { useContext, useEffect, useCallback } from "react";
+import { useContext, useEffect, useCallback,useState } from "react";
 import { GlobalContext } from "../../store/GlobalState";
 import useScrollToTop from "../../../customHooks/useScroll";
 import fetchData from "../../../customHooks/fetchData";
+import Loader from "../../layout/Loader";
 
 const Shop = () => {
   const { products, dispatch, searchText } = useContext(GlobalContext);
-
+  const [loading, setLoading] = useState(true);
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -24,15 +25,17 @@ const Shop = () => {
   );
 
   useEffect(() => {
+    setLoading(true);
     const getProducts = async () => {
       const res = await fetchData("/products/all");
-      if (!res.error) return setProducts(res.data);
+      if (!res.error) setProducts(res.data);
+      setLoading(false);
     };
 
     getProducts();
   }, [setProducts]);
 
-  return (
+  return loading ? <Loader /> : (
     <main>
       <section className="shop">
         <SearchBar searchClass="search-bar" />

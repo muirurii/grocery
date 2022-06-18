@@ -3,11 +3,13 @@ import { GlobalContext } from "../../store/GlobalState";
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import useScrollToTop from "../../../customHooks/useScroll";
+import postData from "../../../customHooks/postData";
 
 const LogIn = () => {
   const { dispatch } = useContext(GlobalContext);
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [details, setDetails] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     dispatch({
@@ -16,16 +18,34 @@ const LogIn = () => {
     });
   }, [dispatch]);
 
-  const logIn = (e) => {
+  const logIn = async (e) => {
     e.preventDefault();
-    dispatch({
-      type: "changeLogIn",
+
+    if (details.email.length < 2 || details.password.length < 2) {
+      return setMessage("Password or name is too short");
+    }
+    const res = await postData("/users/login", {
+      email: details.email,
+      password: details.password,
     });
-    dispatch({
-      type: "toggleAvatar",
-      payload: name,
-    });
-    navigate("/shop");
+    
+    if (res.error) {
+      return setMessage(res.data);
+    } else {
+      dispatch({
+        type: "changeLogIn",
+        payload: {
+          token: res.data.token,
+          name:res.data.user.name,
+          email:res.data.user.email
+        },
+      });
+      dispatch({
+        type: "toggleAvatar",
+        payload: res.data.user.name,
+      });
+      navigate("/shop");
+    }
   };
 
   useScrollToTop();
@@ -34,16 +54,17 @@ const LogIn = () => {
     <main className="log-in">
       <h1>Log In</h1>
       <form className="center form-layout" onSubmit={logIn}>
+        <p className="message">{message}</p>
         <div>
-          <label htmlFor="name">Username</label>
+          <label htmlFor="name">Email</label>
           <br />
           <input
             type="text"
-            placeholder="enter your username"
+            placeholder="enter your email"
             id="name"
             required
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            value={details.name}
           />
         </div>
         <div>
@@ -54,13 +75,16 @@ const LogIn = () => {
             id="password"
             placeholder="enter your password"
             required
+            onChange={(e) =>
+              setDetails({ ...details, password: e.target.value })
+            }
+            value={details.password}
           />
         </div>
         <div>
           <button type="submit">Log in</button>
         </div>
         <div className="form-text">
-          <p>Forgot Password?</p>
           <p>
             <Link to={"/signup"} className="link-to">
               Click here{" "}

@@ -5,7 +5,7 @@ const ContactPage = () => {
 
   return (
     <main className="contact-page">
-      <h1>Send us a message</h1>
+      <h1>Send an enquiry</h1>
       <form className="center form-layout">
         <div>
           <label htmlFor="name">Name</label>
@@ -23,9 +23,9 @@ const ContactPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Enquiry</label>
           <br />
-          <textarea placeholder="enter your message"></textarea>
+          <textarea placeholder="enter your question"></textarea>
         </div>
         <div>
           <button type="submit" cols="30" rows="10">

@@ -5,15 +5,21 @@ const TransactionSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
-    details: {
-        products: {
-            type: Array,
-            required: true
-        },
-        cost: {
-            type: Number,
-            required: true
-        }
+    cost: {
+        type: Number,
+        required: true
+    },
+    delivered: {
+        type: Boolean,
+        default: false
+    },
+    paid: {
+        type: Boolean,
+        default: false
+    },
+    products: {
+        type: [mongoose.Schema.Types.ObjectId],
+        required: true
     }
 }, {
     timestamps: true

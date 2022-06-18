@@ -55,6 +55,12 @@ const StateReducer = (state, action) => {
         ),
       };
     }
+    case "clearCart": {
+      return {
+        ...state,
+        cartProducts:[]
+      };
+    }
     case "search": {
       return {
         ...state,
@@ -64,7 +70,12 @@ const StateReducer = (state, action) => {
     case "changeLogIn": {
       return {
         ...state,
-        isLoggedIn: !state.isLoggedIn,
+        user:{
+          isLoggedIn: !state.user.isLoggedIn,
+          token: action.payload.token,
+          name: action.payload.name,
+          email: action.payload.email
+        }
       };
     }
     case "toggleLogOutModal": {
