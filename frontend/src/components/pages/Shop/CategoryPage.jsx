@@ -6,31 +6,27 @@ import SearchBar from "./SearchBar";
 import useScrollToTop from "../../../customHooks/useScroll";
 import fetchData from "../../../customHooks/fetchData";
 import Loader from "../../layout/Loader";
+import {useSelector,useDispatch} from "react-redux";
+import { bindActionCreators } from "redux";
+import {fetchCategory} from "../../../store/actions/productActions";
 
 const CategoryPage = () => {
-  const { searchText } = useContext(GlobalContext);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
+  const {categoryProducts,  searchText} = useSelector(state => state.products);
+  const dispatch = useDispatch();
+  const getProducts = bindActionCreators(fetchCategory,dispatch);  
   const { category } = useParams();
 
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = categoryProducts.filter((product) =>
     product.name.toLowerCase().includes(searchText.toLowerCase())
   );
   
   useScrollToTop();
 
   useEffect(() => {  
-    setLoading(true);
-    const getData = async () => {
-      const res = await fetchData(`/products/category/${category}`);
-      setProducts([...res.data.products]);
-      setLoading(false);
-    };
-    getData();
-  }, [category]);
+    getProducts(category);
+  }, []);
 
-  return loading ? <Loader /> : (
+  return (
     <main>
       <section className="shop">
         <SearchBar searchClass="search-bar" />

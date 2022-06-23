@@ -47,7 +47,9 @@ const Profile = () => {
             </tr>
           </thead>
           <tbody>
-            {loading ? <Loader /> : transactions.map((t) => (
+            {loading ? <Loader /> : transactions.sort((a,b)=>{
+                return new Date(b.createdAt)  - new Date(a.createdAt)
+            }).map((t) => (
                   <Transaction key={t._id} transaction={t} />
                 )) 
             }

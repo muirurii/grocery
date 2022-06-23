@@ -1,16 +1,16 @@
 import ProductCard from "../Shop/ProductCard";
-import { useState, useEffect } from "react";
-import fetchData from "../../../customHooks/fetchData";
+import { useEffect } from "react";
+import { fetchFeatured } from "../../../store/actions/productActions";
+import {useSelector,useDispatch} from "react-redux";
+import { bindActionCreators } from "redux";
 
 const Featured = () => {
-  const [featured, setFeatured] = useState([]);
+  const featured = useSelector(state=> state.products.featured);
+  const dispatch = useDispatch();
+  const setFeatured = bindActionCreators(fetchFeatured,dispatch);
 
   useEffect(() => {
-    const getData = async () => {
-      const res = await fetchData("/products/featured");
-      if (!res.error) return setFeatured([...res.data]);
-    };
-    getData();
+    setFeatured();
   }, []);
 
   return (

@@ -33,7 +33,9 @@ const Header = () => {
     });
   };
 
-  const count = cartProducts.length;
+  const count = cartProducts.reduce((start,product)=>{
+        return start + product.amount;
+  },0);
 
   return (
     <header>

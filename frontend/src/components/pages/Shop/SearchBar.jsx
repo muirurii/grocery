@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { GlobalContext } from "../../store/GlobalState";
+import {useSelector,useDispatch} from "react-redux"
+import { bindActionCreators } from "redux";
+import { setSearch } from "../../../store/actions/productActions";
 
 const SearchBar = ({ searchClass }) => {
-  const { dispatch, searchText } = useContext(GlobalContext);
-  const searchFunc = (payload) => {
-    dispatch({
-      type: "search",
-      payload,
-    });
-  };
+  const searchText = useSelector(state => state.products.searchText);
+  const dispatch = useDispatch();
+  const searchFunc = bindActionCreators(setSearch,dispatch);
 
   return (
     <div className={`search  ${searchClass}`}>

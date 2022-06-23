@@ -1,41 +1,25 @@
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
-import { useContext, useEffect, useCallback,useState } from "react";
-import { GlobalContext } from "../../store/GlobalState";
+import {  useEffect } from "react";
 import useScrollToTop from "../../../customHooks/useScroll";
-import fetchData from "../../../customHooks/fetchData";
-import Loader from "../../layout/Loader";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchProducts } from "../../../store/actions/productActions";
 
 const Shop = () => {
-  const { products, dispatch, searchText } = useContext(GlobalContext);
-  const [loading, setLoading] = useState(true);
+  useScrollToTop();
+  const {all: products,searchText} = useSelector((state) => state.products);
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchText.toLowerCase())
   );
-  useScrollToTop();
-
-  const setProducts = useCallback(
-    (payload) => {
-      dispatch({
-        type: "setProducts",
-        payload,
-      });
-    },
-    [dispatch]
-  );
+  const dispatch = useDispatch();
+  const getProducts = bindActionCreators(fetchProducts, dispatch);
 
   useEffect(() => {
-    setLoading(true);
-    const getProducts = async () => {
-      const res = await fetchData("/products/all");
-      if (!res.error) setProducts(res.data);
-      setLoading(false);
-    };
-
     getProducts();
-  }, [setProducts]);
+  },[]);
 
-  return loading ? <Loader /> : (
+  return (
     <main>
       <section className="shop">
         <SearchBar searchClass="search-bar" />
