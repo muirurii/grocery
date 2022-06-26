@@ -1,25 +1,19 @@
-import { useContext,useState } from "react";
+import {useState } from "react";
 import { Link ,useNavigate} from "react-router-dom";
 import postData from "../../../customHooks/postData";
-import { GlobalContext } from "../../store/GlobalState";
 import CartItem from "./CartItem";
+import { bindActionCreators } from "redux";
+import * as actions from "../../../store/actions/cartActions";
+import {useSelector,useDispatch} from "react-redux";
 
 const Cart = () => {
-  const { cartProducts, isCartOpen, dispatch, user } =
-    useContext(GlobalContext);
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
-  const closeCart = () => {
-    dispatch({
-      type: "toogleCart",
-      payload: "",
-    });
-  };
-
-  const totalPrice = cartProducts.reduce((total, product) => {
-    return total + product.price * product.amount;
-  }, 0);
-
+  const dispatch = useDispatch();
+  const {products,status} = useSelector(state=> state.cart);
+  const user = useSelector(state=> state.user);
+  const {toogleCart,clearCart} = bindActionCreators({...actions},dispatch);
+ 
   const makeTransaction = async () => {
     if(loading) return;
     setLoading(true);
@@ -28,35 +22,35 @@ const Cart = () => {
       {
         transaction: {
           cost: totalPrice,
-          products: cartProducts.map((item) => item._id),
+          products: products.map((item) => item._id),
         },
       },
       user.token
     );
     if (!res.error) {
-        dispatch({
-            type:"clearCart"
-        });
       navigate('/profile');
-      closeCart();
+      clearCart();
     }
     setLoading(false);
   };
 
-  const count = cartProducts.length;
+  const count = products.length;
+ const totalPrice = products.reduce((total, product) => {
+    return total + product.price * product.amount;
+  }, 0);
 
   return (
-    isCartOpen && (
+    status && (
       <div className="cart">
         <section>
-          <button className="close-cart" onClick={closeCart}>
+          <button className="close-cart" onClick={toogleCart}>
             <i className="fas fa-arrow-left"></i> &nbsp;Back
           </button>
           <h2>Selected Products {`(${count})`} </h2>
-          {cartProducts.length ? (
+          {products.length ? (
             <>
               <ul>
-                {cartProducts.map((product, index) => (
+                {products.map((product, index) => (
                   <CartItem key={index} product={product} />
                 ))}
               </ul>
@@ -65,7 +59,7 @@ const Cart = () => {
                 {user.isLoggedIn ? (
                   <button onClick={makeTransaction} >Check Out</button>
                 ) : (
-                  <Link to={"login"}>Login to start shopping</Link>
+                  <Link to={"login"} onClick={toogleCart}>Login to start shopping</Link>
                 )}
               </div>
             </>

@@ -12,7 +12,6 @@ import SignUp from './components/pages/SignUp/SignUp';
 import Cart from './components/layout/Cart/Cart';
 import ProductPage from './components/pages/Shop/ProductPage';
 import CategoryPage from './components/pages/Shop/CategoryPage';
-import { GlobalProvider } from './components/store/GlobalState';
 import Profile from './components/pages/Profile/Profile';
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
   },[]);
 
   return loadingState ? <Loader /> : (
-    <GlobalProvider >
       <Router>
           <Header />
           <Cart />
@@ -40,7 +38,6 @@ function App() {
           </Routes>
           <Footer />
       </Router>
-    </GlobalProvider>
   );
 }
 

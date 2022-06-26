@@ -1,36 +1,18 @@
-import { useContext } from "react";
-import { GlobalContext } from "../../store/GlobalState";
 import {IoAddCircleSharp,IoBagRemoveSharp} from "react-icons/io5";
 import {IoIosRemoveCircle} from "react-icons/io";
+import { useDispatch } from "react-redux";
+import * as actions from "../../../store/actions/cartActions";
+import { bindActionCreators } from "redux";
 
 const CartButtons = ({product}) => {
-    
-    const {dispatch}= useContext(GlobalContext);
+    const dispatch = useDispatch();
+    const {increaseAmount,decreaseAmount,removeFromCart} = bindActionCreators({...actions},dispatch);
 
-    const increaseItemCount = (id)=>{
-            dispatch({
-                type:"increaseCount",
-                payload: id,
-            });
-    }
-    const decreaseItemCount = (id)=>{
-            dispatch({
-                type:"reduceCount",
-                payload: id,
-            });
-    }
-    const removeFromCart = (id)=>{
-            dispatch({
-                type:"removeFromCart",
-                payload: id,
-            });
-
-    }
     return (
         <div className="buttons">
-                <button className="decrement"  onClick={()=>decreaseItemCount(product._id)}><IoIosRemoveCircle /></button>
+                <button className="decrement"  onClick={()=>decreaseAmount(product._id)}><IoIosRemoveCircle /></button>
                 <span>{product.amount}</span>
-                <button className="increment" onClick={()=>increaseItemCount(product._id)}><IoAddCircleSharp /></button>
+                <button className="increment" onClick={()=>increaseAmount(product._id)}><IoAddCircleSharp /></button>
                 <button className="remove" onClick={()=>removeFromCart(product._id)}><IoBagRemoveSharp /></button>
         </div>
     )

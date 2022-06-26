@@ -1,6 +1,6 @@
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import useScrollToTop from "../../../customHooks/useScroll";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -8,7 +8,7 @@ import { fetchProducts } from "../../../store/actions/productActions";
 
 const Shop = () => {
   useScrollToTop();
-  const {all: products,searchText} = useSelector((state) => state.products);
+  const { all: products, searchText } = useSelector((state) => state.products);
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -17,12 +17,18 @@ const Shop = () => {
 
   useEffect(() => {
     getProducts();
-  },[]);
+  }, []);
 
   return (
     <main>
       <section className="shop">
         <SearchBar searchClass="search-bar" />
+        {searchText.length && filteredProducts.length ? (
+          <p className="center">
+            showing {filteredProducts.length} result
+            {filteredProducts.length > 1 ? "s" : ""} for {searchText}
+          </p>
+        ) : null}
         <section className="product-container">
           {filteredProducts.length
             ? filteredProducts.map((product, index) => {

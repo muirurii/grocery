@@ -1,31 +1,14 @@
-import { useContext } from "react";
-import { GlobalContext } from "../../store/GlobalState";
 import { Link } from "react-router-dom";
 import { MdOutlineRemoveShoppingCart, MdRemoveRedEye } from "react-icons/md";
+import {useDispatch,useSelector} from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../../store/actions/cartActions";
 
 const ProductCard = ({ product }) => {
-  const { cartProducts, dispatch } = useContext(GlobalContext);
-
-  const addToCart = () => {
-    dispatch({
-      type: "addToCart",
-      payload: { ...product, amount: 1 },
-    });
-  };
-  const toggleCart = () => {
-    dispatch({
-      type: "toogleCart",
-      payload: "",
-    });
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: "removeFromCart",
-      payload: product._id,
-    });
-  };
-  const isThisInCart = cartProducts.find((prod) => prod._id === product._id);
+  const {products } = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+  const {addToCart,removeFromCart,toogleCart} = bindActionCreators({...actions},dispatch);
+  const isThisInCart = products.some((prod) => prod._id === product._id);
 
   return (
     <article className="product-card">
@@ -42,14 +25,14 @@ const ProductCard = ({ product }) => {
       </div>
       {isThisInCart ? (
         <>
-          <button onClick={toggleCart} className="product-btn view-in-cart">
+          <button onClick={toogleCart} className="product-btn view-in-cart">
             <span className="center">
               Cart &nbsp;
               <MdRemoveRedEye />
             </span>
           </button>
           <button
-            onClick={removeFromCart}
+            onClick={() => removeFromCart(product._id)}
             className="product-btn remove-from-cart"
           >
             <span className="center">
@@ -59,7 +42,7 @@ const ProductCard = ({ product }) => {
           </button>
         </>
       ) : (
-        <button onClick={addToCart} className="product-btn add-cart">
+        <button onClick={()=> addToCart(product)} className="product-btn add-cart">
           Add to cart <i className="fas fa-cart-plus"></i>
         </button>
       )}

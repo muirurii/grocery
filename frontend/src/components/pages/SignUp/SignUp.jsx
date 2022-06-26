@@ -1,13 +1,17 @@
 import { Link ,useNavigate} from "react-router-dom";
 import useScrollToTop from "../../../customHooks/useScroll";
-import { GlobalContext } from "../../store/GlobalState";
-import postData from "../../../customHooks/postData";
-import { useState,useContext } from "react";
+import { useState } from "react";
+import {useDispatch,useSelector} from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../../store/actions/userActions";
 
 const SignUp = () => {
   useScrollToTop();
   const navigate = useNavigate();
-  const {dispatch}= useContext(GlobalContext);
+  const dispatch= useDispatch();
+  const {error} = useSelector(state => state.user);
+  
+  const {setError,setUser} = bindActionCreators({...actions},dispatch);
 
   const [details,setDetails] = useState({
     name:'',
@@ -15,38 +19,27 @@ const SignUp = () => {
     password: '',
     repeatPass:''
   });
-  const [message,setMessage] = useState('');  
+  
 
   const registerUser = async(e)=>{
     e.preventDefault();
     if(details.name.length < 3 || details.email.length < 3 || details.password.length < 3){
-      return setMessage("password or name is too short");
+      return setError("password or name is too short");
     }
     if(details.password !== details.repeatPass){
-      return setMessage("passwords dont match");
+      return setError("passwords dont match");
     }
-
-    const res = await postData('/users/new',{
+    
+   const res = await setUser({
       name:details.name,
       email:details.email,
       password:details.password
-    });
+    },'new');
 
-    if(res.error){
-      return setMessage(res.data.message);
-    } else{
-      dispatch({
-        type: "changeLogIn",
-        payload: {
-          token: res.data.user.token,
-          name: res.data.user.name,
-          email: res.data.user.email
-        },
-      });
-      dispatch({
-        type: "toggleAvatar",
-        payload: details.name,
-      });
+    if(!res.success){
+      return setError(res.error)
+    } else{      
+      setError('');
       navigate("/shop");
     }
   }
@@ -55,7 +48,7 @@ const SignUp = () => {
     <main className="sign-up">
       <h1>Create account</h1>
       <form className="center form-layout" onSubmit={registerUser}>
-        <p className="message">{message}</p>
+        <p className="message">{error}</p>
         <div>
           <label htmlFor="user-name">Username</label>
           <br />

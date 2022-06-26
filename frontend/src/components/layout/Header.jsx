@@ -1,39 +1,21 @@
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../store/GlobalState";
-import { useContext } from "react";
 import LogOutModal from "./LogOutModal";
 import Avatar from "./Avatar";
 import MenuItems from "./MenuItems";
 import {BsList} from 'react-icons/bs'
+import {useDispatch,useSelector} from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../store/actions/menuActions";
+import {toogleCart as setCart} from "../../store/actions/cartActions"
 
 const Header = () => {
-  const {
-    user,
-    logOutModal,
-    dispatch,
-    cartProducts,
-    menuStatus,
-  } = useContext(GlobalContext);
-
-  const openModal = () => {
-    dispatch({
-      type: "toggleLogOutModal",
-    });
-  };
-  const toogleCart = () => {
-    dispatch({
-      type: "toogleCart",
-      payload: "",
-    });
-  };
-  const toogleMenu = () => {
-    dispatch({
-      type: "toogleMenu",
-      payload: "",
-    });
-  };
-
-  const count = cartProducts.reduce((start,product)=>{
+  const {products} = useSelector(state => state.cart);
+  const user = useSelector(state=> state.user);
+  const {mobileMenu,modal} = useSelector(state=> state.menu);
+  const dispatch = useDispatch();
+  const {toogleMenu,toogleModal} = bindActionCreators({...actions},dispatch);
+  const toogleCart = bindActionCreators(setCart,dispatch);
+  const count = products.reduce((start,product)=>{
         return start + product.amount;
   },0);
 
@@ -44,14 +26,14 @@ const Header = () => {
       </h1>
       <MenuItems
         isLoggedIn={user.isLoggedIn}
-        navClass={`small-menu ${menuStatus ? " show" : null}`}
+        navClass={`small-menu ${mobileMenu ? " show" : null}`}
         menuToogle={toogleMenu}
       />
       <MenuItems navClass={"main-nav center"} isLoggedIn={user.isLoggedIn} />
       <div className="login">
-        {logOutModal && <LogOutModal name={user.name} />}
+        {modal && <LogOutModal name={user.name} />}
         {user.isLoggedIn ? (
-          <div onClick={openModal}>
+          <div onClick={toogleModal}>
             <Avatar name={user.name} />
           </div>
         ) : (
@@ -63,7 +45,7 @@ const Header = () => {
         <p>{count}</p>
       </div>
       <div 
-      className={`center hamb ${menuStatus ? "open" : null}`}
+      className={`center hamb ${mobileMenu ? "open" : null}`}
       onClick={toogleMenu}>
           <BsList />
       </div>

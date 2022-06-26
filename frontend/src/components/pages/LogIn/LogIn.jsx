@@ -1,49 +1,36 @@
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../../store/GlobalState";
-import { useContext, useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import useScrollToTop from "../../../customHooks/useScroll";
-import postData from "../../../customHooks/postData";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../../store/actions/userActions";
 
 const LogIn = () => {
-  const { dispatch } = useContext(GlobalContext);
   const navigate = useNavigate();
   const [details, setDetails] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    dispatch({
-      type: "toogleCart",
-      payload: false,
-    });
-  }, [dispatch]);
+  const dispatch = useDispatch();
+  const { error } = useSelector((state) => state.user);
+  const { setError, setUser } = bindActionCreators({ ...actions }, dispatch);
 
   const logIn = async (e) => {
     e.preventDefault();
 
     if (details.email.length < 2 || details.password.length < 2) {
-      return setMessage("Password or name is too short");
+      return setError("Password or name is too short");
     }
-    const res = await postData("/users/login", {
-      email: details.email,
-      password: details.password,
-    });
-    
-    if (res.error) {
-      return setMessage(res.data);
+    const res = await setUser(
+      {
+        email: details.email,
+        password: details.password,
+      },
+      "login"
+    );
+
+    if (!res.success) {
+      return setError(res.error);
     } else {
-      dispatch({
-        type: "changeLogIn",
-        payload: {
-          token: res.data.token,
-          name:res.data.user.name,
-          email:res.data.user.email
-        },
-      });
-      dispatch({
-        type: "toggleAvatar",
-        payload: res.data.user.name,
-      });
+      setError("");
       navigate("/shop");
     }
   };
@@ -54,7 +41,7 @@ const LogIn = () => {
     <main className="log-in">
       <h1>Log In</h1>
       <form className="center form-layout" onSubmit={logIn}>
-        <p className="message">{message}</p>
+        <p className="message">{error}</p>
         <div>
           <label htmlFor="name">Email</label>
           <br />

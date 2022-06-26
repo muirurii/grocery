@@ -29,7 +29,7 @@ const getUser = async(req, res) => {
         return res.status(400).json({ message: "fill in all fields" });
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(403).json("wrong credentials");
+        if (!user) return res.status(403).json({ message: "wrong credentials" });
 
         const comparePwd = await bcrypt.compare(password, user.password)
         if (!comparePwd)

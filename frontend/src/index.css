@@ -817,8 +817,8 @@ main h1::after {
     width: 250px;
     height: 100px;
     justify-content: space-evenly;
-    border: 1px solid var(--fadeColor);
-    border-radius: 5px;
+    border: 1px solid var(--mainGreen);
+    border-radius: 8px;
     cursor: pointer;
     margin: 0em 3em 2em 3em;
     position: relative;
@@ -833,20 +833,20 @@ main h1::after {
     top: 0;
     left: 0;
     height: 100%;
-    width: 7px;
+    width: 4px;
     transition: transform 500ms ease-in-out;
 }
 
 .categories article:hover {
-    border-color: var(--mainGreen);
+    border-color: var(--mainOrange);
 }
 
 .categories article::after {
-    background-color: var(--fadeColor);
+    background-color: var(--mainGreen);
 }
 
 .categories article::before {
-    background-color: var(--mainGreen);
+    background-color: var(--mainOrange);
     transform: scaleY(0);
 }
 
@@ -911,12 +911,6 @@ main h1::after {
     font-size: 1.4rem;
 }
 
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
 .profile table {
     font-weight: normal;
     border-spacing: 0;
@@ -924,7 +918,6 @@ main h1::after {
 }
 
 .profile thead {
-    border: 1px solid var(--mainGreen);
     background-color: var(--mainGreen);
 }
 
@@ -935,14 +928,13 @@ main h1::after {
 
 .profile td {
     font-size: .9rem;
-    padding: .3em 0;
-    text-align: center;
+    padding: .5em .3em;
     border: 1px solid var(--mainGreen);
     border-top: none;
 }
 
 .profile td:not(:first-child) {
-    border-left: none;
+    border-left-width: 0;
 }
 
 .done {
@@ -951,6 +943,25 @@ main h1::after {
 
 .pending {
     color: #ff3a3a;
+}
+
+.trans-details {
+    display: none;
+}
+
+.trans-details.collapse {
+    display: block;
+}
+
+table button {
+    transform: rotateZ(90deg);
+    transition: 400ms;
+    background-color: transparent;
+    float: right;
+}
+
+button.collapse {
+    transform: rotateZ(-90deg);
 }
 
 footer {
