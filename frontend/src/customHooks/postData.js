@@ -1,6 +1,6 @@
 const postData = async(url, details, auth) => {
     try {
-        const res = await fetch(`http://localhost:5000/api${url}`, {
+        const res = await fetch(`/api${url}`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

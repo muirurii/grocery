@@ -1,6 +1,6 @@
 const fetchData = async(url, auth) => {
     try {
-        const res = await fetch(`http://localhost:5000/api${url}`, {
+        const res = await fetch(`/api${url}`, {
             headers: {
                 "Content-type": "application/json",
                 Accepts: "application/json",
