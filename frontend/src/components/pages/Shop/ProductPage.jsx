@@ -17,7 +17,7 @@ const ProductPage = () => {
     
     useEffect(()=>{
         getProduct(productId);
-    },[]);
+    },[productId]);
 
     return !related.length ? '...' :(<main className="product-page">
             <h1>{product.name}</h1>
