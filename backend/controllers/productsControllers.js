@@ -2,6 +2,7 @@ const Product = require("../model/Product");
 
 
 const getAllProducts = async(req, res) => {
+
     try {
         const products = await Product.find();
         res.json(products);
@@ -11,9 +12,10 @@ const getAllProducts = async(req, res) => {
 };
 
 const getProduct = async(req, res) => {
-    const params = req.params;
+    const { productName } = req.params;
+
     try {
-        const product = await Product.findOne({ _id: params.product });
+        const product = await Product.findOne({ name: productName });
         const related = await Product.find({ category: product.category }).limit(5);
         res.json({ product, related: related.filter(p => p.name !== product.name) });
 

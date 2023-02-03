@@ -1,4 +1,4 @@
-import {  useEffect} from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ProductCard from "./ProductCard";
 import SearchBar from "./SearchBar";
@@ -6,6 +6,7 @@ import useScrollToTop from "../../../customHooks/useScroll";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchCategory } from "../../../store/actions/productActions";
+import ProductLoading from "../../layout/ProductLoading";
 
 const CategoryPage = () => {
   const { categoryProducts, searchText } = useSelector(
@@ -21,8 +22,14 @@ const CategoryPage = () => {
 
   useScrollToTop();
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    getProducts(category);
+    const awaitProducts = async () => {
+      await getProducts(category);
+      setLoading(false);
+    };
+    awaitProducts();
   }, [category]);
 
   return (
@@ -36,11 +43,20 @@ const CategoryPage = () => {
           </p>
         ) : null}
         <section className="product-container">
-          {filteredProducts.length
-            ? filteredProducts.map((product, index) => {
-                return <ProductCard key={product._id} product={product} />;
-              })
-            : `${searchText} not found try searching for something else`}
+          {loading ? (
+            <>
+              <ProductLoading />
+              <ProductLoading />
+              <ProductLoading />
+              <ProductLoading />
+            </>
+          ) : filteredProducts.length ? (
+            filteredProducts.map((product, index) => {
+              return <ProductCard key={product._id} product={product} />;
+            })
+          ) : (
+            `${searchText} not available try searching for something else`
+          )}
         </section>
       </section>
     </main>

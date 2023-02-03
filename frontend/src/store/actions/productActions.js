@@ -10,15 +10,19 @@ export const fetchProducts = () => async dispatch => {
 }
 
 export const fetchFeatured = () => async dispatch => {
-    const res = await fetchData('/products/featured');
-    dispatch({
-        type: types.FETCH_FEATURED_PRODUCTS,
-        payload: res.data
-    });
+    try {
+        const res = await fetchData('/products/featured');
+        dispatch({
+            type: types.FETCH_FEATURED_PRODUCTS,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log("error", error)
+    }
 }
 
-export const fetchProduct = productId => async dispatch => {
-    const res = await fetchData(`/products/${productId}`);
+export const fetchProduct = productName => async dispatch => {
+    const res = await fetchData(`/products/${productName}`);
     dispatch({
         type: types.FETCH_SINGLE_PRODUCT,
         payload: res.data

@@ -4,7 +4,6 @@ import userReducers from "./userReducers";
 import menuReducers from "./menuReducers";
 import cartReducers from "./cartReducers";
 import transactionReducers from "./transactionsReducers";
-import loading from "./loading";
 
 const reducers = combineReducers({
     products: productReducers,
@@ -12,7 +11,6 @@ const reducers = combineReducers({
     menu: menuReducers,
     cart: cartReducers,
     transaction: transactionReducers,
-    loading
 });
 
 export default reducers;

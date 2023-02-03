@@ -9,7 +9,6 @@
 /coverage
 
 # production
-/build
 products.js
 # misc
 .DS_Store

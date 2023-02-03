@@ -44,9 +44,13 @@ body {
     align-items: center;
 }
 
+.loader-container {
+    height: 400px;
+}
+
 .loader {
     z-index: 250;
-    background-color: rgba(255, 255, 255, 0.849);
+    background-color: #ffffffd8;
     backdrop-filter: blur(10px);
     width: 100vw;
     height: 100vh;
@@ -359,26 +363,39 @@ main h1::after {
     padding: 50px 0;
 }
 
-.product-card {
-    background-color: #fff;
+.product-card,
+.product-loading {
     height: 250px;
     width: 240px;
-    margin: 2em;
-    box-shadow: 0 .3px 1.5px #ccccccbd, inset -1px 0 2px #ccccccbd;
     border-radius: 6px;
+    margin: 2em;
     overflow: hidden;
     transition: 400ms ease-in-out;
+    box-shadow: 0 .3px 1.5px #ccccccbd, inset -1px 0 2px #ccccccbd;
     position: relative;
+}
+
+.product-card {
+    background-color: #fff;
 }
 
 .product-card:hover {
     transform: translate(0.1em, -0.1em);
 }
 
-.product-background {
+.product-background,
+.mock-image {
     background-size: 100% 100%;
     height: 65%;
     width: 100%;
+}
+
+.product-loading {
+    background-color: #f3f2f2;
+}
+
+.mock-image {
+    background-color: #e7e6e6;
 }
 
 .product-info {
@@ -390,6 +407,39 @@ main h1::after {
 .product-btn {
     padding: .6em 0;
     border-radius: 3px;
+}
+
+.product-loading::after,
+.description.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -6px;
+    bottom: 0;
+    width: 6px;
+    background-color: #e0e0e09a;
+    animation: loadproduct 800ms ease-in-out infinite;
+}
+
+@keyframes loadproduct {
+    to {
+        left: calc(100% + 6px);
+    }
+}
+
+.product-loading .product-info {
+    margin-top: 4px;
+}
+
+.product-loading .hide-more .product-btn.add-cart {
+    margin-top: 2em;
+    display: block;
+}
+
+.product-loading .product-btn.add-cart,
+.product-loading .product-info span {
+    background-color: #e7e6e6;
+    color: #e7e6e6;
 }
 
 .add-cart {
@@ -442,16 +492,26 @@ main h1::after {
     position: relative;
 }
 
-.hide-more .product-card {
+.hide-more .product-card,
+.hide-more .product-loading {
     width: 280px;
     height: 280px;
     box-shadow: none;
+    margin: 0 2em 2em 0;
 }
 
-.product-page .hide-more .description {
+.description {
     font-size: 1rem;
     max-width: 400px;
     padding: 1em;
+}
+
+.description.loading {
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f2f2;
+    color: #f3f2f2;
+    padding: 0;
 }
 
 .description p {

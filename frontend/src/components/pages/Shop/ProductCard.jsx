@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
           Add to cart <i className="fas fa-cart-plus"></i>
         </button>
       )}
-      <Link to={`/shop/${product.category.toLowerCase()}/${product._id}`}>
+      <Link to={`/shop/${product.category.toLowerCase()}/${product.name.split(" ").join("-")}`}>
         <button className="more">View</button>
       </Link>
     </article>
